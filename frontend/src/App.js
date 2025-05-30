@@ -1145,13 +1145,12 @@ const InvestorsPage = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50">
-              <div className="text-center mb-6">
+            <div className="text-center">
+              <div className="mb-6">
                 <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl text-white">SK</span>
                 </div>
                 <h3 className="text-2xl font-bold text-white">Dr. Sanjeev Kuwadekar</h3>
-                <p className="text-blue-400">Co-Founder & CEO</p>
               </div>
               
               <div className="space-y-4 text-slate-300">
@@ -1160,11 +1159,11 @@ const InvestorsPage = () => {
                 <div className="bg-slate-700/50 rounded-xl p-4">
                   <h4 className="text-white font-semibold mb-2">Contact Information:</h4>
                   <div className="space-y-2 text-sm">
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center justify-center space-x-2">
                       <span>📧</span>
                       <a href="mailto:sanjk0604@gmail.com" className="text-blue-400 hover:text-blue-300">sanjk0604@gmail.com</a>
                     </div>
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center justify-center space-x-2">
                       <span>📱</span>
                       <a href="tel:+18188255024" className="text-blue-400 hover:text-blue-300">+1 (818) 825-5024</a>
                     </div>
@@ -1183,13 +1182,12 @@ const InvestorsPage = () => {
               </div>
             </div>
 
-            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50">
-              <div className="text-center mb-6">
+            <div className="text-center">
+              <div className="mb-6">
                 <div className="w-24 h-24 bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl text-white">SP</span>
                 </div>
                 <h3 className="text-2xl font-bold text-white">Dr. Sampath V Patil</h3>
-                <p className="text-cyan-400">Co-Founder & CTO</p>
               </div>
               
               <div className="space-y-4 text-slate-300">
@@ -1198,11 +1196,11 @@ const InvestorsPage = () => {
                 <div className="bg-slate-700/50 rounded-xl p-4">
                   <h4 className="text-white font-semibold mb-2">Contact Information:</h4>
                   <div className="space-y-2 text-sm">
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center justify-center space-x-2">
                       <span>📧</span>
                       <a href="mailto:drsampathvp@gmail.com" className="text-cyan-400 hover:text-cyan-300">drsampathvp@gmail.com</a>
                     </div>
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center justify-center space-x-2">
                       <span>📱</span>
                       <a href="tel:+919353391603" className="text-cyan-400 hover:text-cyan-300">+91 93533 91603</a>
                     </div>
