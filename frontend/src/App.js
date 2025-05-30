@@ -1757,101 +1757,191 @@ const BusinessPage = () => {
         </div>
       </section>
 
-      {/* Unit Economics */}
-      <section className="py-24 bg-slate-800/50">
+      {/* Advanced Investment Metrics Dashboard */}
+      <section className="py-24 bg-gradient-to-r from-slate-900 via-purple-900 to-blue-900">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Strong Unit Economics</h2>
-            <p className="text-xl text-slate-300">Proven metrics demonstrating sustainable, profitable growth</p>
+            <h2 className="text-4xl font-bold text-white mb-6">
+              Premium Investment
+              <span className="block bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                Opportunity
+              </span>
+            </h2>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              Exclusive Tier 1 investor opportunity with enhanced terms and accelerated growth trajectory
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16">
-            <div>
-              <img 
-                src="https://images.unsplash.com/photo-1554260570-e9689a3418b8" 
-                alt="Financial Metrics" 
-                className="rounded-2xl shadow-2xl w-full h-80 object-cover mb-8"
-              />
-              
-              <div className="space-y-6">
-                <div className="bg-slate-700/50 rounded-xl p-6">
-                  <h3 className="text-xl font-semibold text-green-400 mb-3">Customer Acquisition</h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <div className="text-2xl font-bold text-white">$2,400</div>
-                      <div className="text-slate-400">Average CAC</div>
+          {/* Enhanced Valuation Metrics */}
+          <div className="grid md:grid-cols-4 gap-6 mb-12">
+            <div className="bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-yellow-500/50">
+              <div className="text-center">
+                <div className="text-3xl mb-2">💎</div>
+                <div className="text-3xl font-bold text-yellow-400">$35M</div>
+                <div className="text-slate-300">Series A Target</div>
+                <div className="text-yellow-300 text-sm mt-1">Premium Round</div>
+              </div>
+            </div>
+            
+            <div className="bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-green-500/50">
+              <div className="text-center">
+                <div className="text-3xl mb-2">🚀</div>
+                <div className="text-3xl font-bold text-green-400">$150M</div>
+                <div className="text-slate-300">ARR by Year 3</div>
+                <div className="text-green-300 text-sm mt-1">Accelerated Growth</div>
+              </div>
+            </div>
+            
+            <div className="bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-blue-500/50">
+              <div className="text-center">
+                <div className="text-3xl mb-2">🎯</div>
+                <div className="text-3xl font-bold text-blue-400">$3.5B</div>
+                <div className="text-slate-300">Exit Valuation</div>
+                <div className="text-blue-300 text-sm mt-1">Target Range</div>
+              </div>
+            </div>
+            
+            <div className="bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-purple-500/50">
+              <div className="text-center">
+                <div className="text-3xl mb-2">⚡</div>
+                <div className="text-3xl font-bold text-purple-400">15-20x</div>
+                <div className="text-slate-300">Investor Returns</div>
+                <div className="text-purple-300 text-sm mt-1">5-Year Horizon</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Advanced Market Intelligence */}
+          <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 mb-12">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">🧠 Market Intelligence Hub</h3>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-xl font-semibold text-white mb-4">Competitive Moat Analysis</h4>
+                <div className="space-y-4">
+                  <div className="bg-green-900/30 rounded-lg p-4 border border-green-500/30">
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-300">Technology Barrier</span>
+                      <span className="text-green-400 font-bold">24 months</span>
                     </div>
-                    <div>
-                      <div className="text-2xl font-bold text-green-400">3.2:1</div>
-                      <div className="text-slate-400">LTV:CAC Ratio</div>
+                    <div className="text-sm text-green-300 mt-1">Patent portfolio + AI training data</div>
+                  </div>
+                  
+                  <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-500/30">
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-300">Network Effects</span>
+                      <span className="text-blue-400 font-bold">Exponential</span>
                     </div>
+                    <div className="text-sm text-blue-300 mt-1">Meeting participants become advocates</div>
+                  </div>
+                  
+                  <div className="bg-purple-900/30 rounded-lg p-4 border border-purple-500/30">
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-300">Data Advantage</span>
+                      <span className="text-purple-400 font-bold">Compounding</span>
+                    </div>
+                    <div className="text-sm text-purple-300 mt-1">AI improves with every meeting</div>
                   </div>
                 </div>
-                
-                <div className="bg-slate-700/50 rounded-xl p-6">
-                  <h3 className="text-xl font-semibold text-blue-400 mb-3">Retention Metrics</h3>
-                  <div className="grid grid-cols-2 gap-4">
+              </div>
+              
+              <div>
+                <h4 className="text-xl font-semibold text-white mb-4">Enterprise Pipeline</h4>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg">
                     <div>
-                      <div className="text-2xl font-bold text-white">96%</div>
-                      <div className="text-slate-400">Annual Retention</div>
+                      <div className="text-white font-semibold">Fortune 100 Prospects</div>
+                      <div className="text-slate-400 text-sm">Enterprise deals $500K+ ACV</div>
                     </div>
+                    <div className="text-2xl font-bold text-green-400">47</div>
+                  </div>
+                  
+                  <div className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg">
                     <div>
-                      <div className="text-2xl font-bold text-blue-400">125%</div>
-                      <div className="text-slate-400">Net Revenue Retention</div>
+                      <div className="text-white font-semibold">Active Pilots</div>
+                      <div className="text-slate-400 text-sm">90-day proof of concept</div>
                     </div>
+                    <div className="text-2xl font-bold text-blue-400">23</div>
+                  </div>
+                  
+                  <div className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg">
+                    <div>
+                      <div className="text-white font-semibold">Signed LOIs</div>
+                      <div className="text-slate-400 text-sm">Letters of intent pending</div>
+                    </div>
+                    <div className="text-2xl font-bold text-purple-400">12</div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Enhanced Technology Metrics */}
+          <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">⚡ Advanced Technology Stack</h3>
             
-            <div className="space-y-8">
-              <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50">
-                <h3 className="text-2xl font-bold text-white mb-6">Key Metrics</h3>
-                
-                <div className="space-y-6">
-                  <div className="flex justify-between items-center py-3 border-b border-slate-700/30">
-                    <span className="text-slate-300">Customer Lifetime Value</span>
-                    <span className="text-2xl font-bold text-green-400">$7,800</span>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">🧠</span>
+                </div>
+                <h4 className="text-lg font-bold text-white mb-2">AI Model Performance</h4>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Voice Recognition:</span>
+                    <span className="text-blue-400">99.7%</span>
                   </div>
-                  
-                  <div className="flex justify-between items-center py-3 border-b border-slate-700/30">
-                    <span className="text-slate-300">Monthly Churn Rate</span>
-                    <span className="text-2xl font-bold text-cyan-400">&lt; 3%</span>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Context Understanding:</span>
+                    <span className="text-cyan-400">97.3%</span>
                   </div>
-                  
-                  <div className="flex justify-between items-center py-3 border-b border-slate-700/30">
-                    <span className="text-slate-300">Gross Margin</span>
-                    <span className="text-2xl font-bold text-blue-400">85%</span>
-                  </div>
-                  
-                  <div className="flex justify-between items-center py-3 border-b border-slate-700/30">
-                    <span className="text-slate-300">Payback Period</span>
-                    <span className="text-2xl font-bold text-indigo-400">14 months</span>
-                  </div>
-                  
-                  <div className="flex justify-between items-center py-3">
-                    <span className="text-slate-300">Magic Number</span>
-                    <span className="text-2xl font-bold text-purple-400">1.8</span>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Response Relevance:</span>
+                    <span className="text-green-400">95.8%</span>
                   </div>
                 </div>
               </div>
               
-              <div className="bg-gradient-to-r from-green-900/30 to-blue-900/30 rounded-2xl p-8 border border-green-500/30">
-                <h3 className="text-xl font-bold text-white mb-4">Growth Drivers</h3>
-                <ul className="space-y-3 text-slate-300">
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-green-400 rounded-full mt-2"></div>
-                    <span><strong>Viral Coefficient:</strong> 0.4 - Meeting participants experience value directly</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2"></div>
-                    <span><strong>Expansion Revenue:</strong> 25% annual growth from existing customers</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2"></div>
-                    <span><strong>Enterprise Momentum:</strong> Average deal size increasing 40% YoY</span>
-                  </li>
-                </ul>
+              <div className="text-center">
+                <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">⚡</span>
+                </div>
+                <h4 className="text-lg font-bold text-white mb-2">Infrastructure Scale</h4>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Concurrent Meetings:</span>
+                    <span className="text-green-400">50,000+</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Global Latency:</span>
+                    <span className="text-teal-400">&lt;150ms</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Uptime SLA:</span>
+                    <span className="text-blue-400">99.99%</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">🔒</span>
+                </div>
+                <h4 className="text-lg font-bold text-white mb-2">Security & Compliance</h4>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">SOC 2 Type II:</span>
+                    <span className="text-purple-400">Certified</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">GDPR Compliant:</span>
+                    <span className="text-pink-400">Full</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Enterprise Ready:</span>
+                    <span className="text-green-400">100%</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
