@@ -1635,12 +1635,12 @@ const BusinessPage = () => {
             ))}
           </div>
 
-          {/* Customer Success Stories */}
+          {/* Customer Success Stories with Enhanced Metrics */}
           <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50">
-            <h3 className="text-2xl font-bold text-white mb-8 text-center">🎯 Customer Success Stories</h3>
+            <h3 className="text-2xl font-bold text-white mb-8 text-center">🏆 Premium Customer Success Stories</h3>
             
             <div className="relative">
-              <div className="bg-slate-700/50 rounded-xl p-8">
+              <div className="bg-gradient-to-r from-slate-700/50 to-slate-600/50 rounded-xl p-8 border border-slate-500/30">
                 <div className="flex items-start space-x-6">
                   <div className="text-4xl">{testimonials[currentTestimonial].avatar}</div>
                   <div className="flex-1">
@@ -1648,25 +1648,88 @@ const BusinessPage = () => {
                       <div className="text-xl font-semibold text-white">{testimonials[currentTestimonial].name}</div>
                       <div className="text-blue-400">{testimonials[currentTestimonial].role}, {testimonials[currentTestimonial].company}</div>
                     </div>
-                    <p className="text-slate-300 text-lg italic mb-4">"{testimonials[currentTestimonial].content}"</p>
-                    <div className="bg-green-900/30 rounded-lg p-3 inline-block">
-                      <div className="text-green-400 font-semibold">Result: {testimonials[currentTestimonial].metrics}</div>
+                    <p className="text-slate-300 text-lg italic mb-6">"{testimonials[currentTestimonial].content}"</p>
+                    
+                    {/* Enhanced Results Metrics */}
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <div className="bg-green-900/40 rounded-lg p-4 border border-green-500/30">
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-green-400">{testimonials[currentTestimonial].metrics}</div>
+                          <div className="text-sm text-green-300">Financial Impact</div>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-blue-900/40 rounded-lg p-4 border border-blue-500/30">
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-blue-400">6 months</div>
+                          <div className="text-sm text-blue-300">Implementation</div>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-purple-900/40 rounded-lg p-4 border border-purple-500/30">
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-purple-400">5,000+</div>
+                          <div className="text-sm text-purple-300">Users Deployed</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
               
-              {/* Testimonial indicators */}
-              <div className="flex justify-center mt-6 space-x-2">
-                {testimonials.map((_, index) => (
+              {/* Enhanced testimonial navigation */}
+              <div className="flex justify-center mt-6 space-x-3">
+                {testimonials.map((testimonial, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentTestimonial(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentTestimonial ? 'bg-blue-400' : 'bg-slate-600'
+                    className={`px-4 py-2 rounded-lg text-sm transition-all duration-300 ${
+                      index === currentTestimonial 
+                        ? 'bg-blue-600 text-white shadow-lg' 
+                        : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
                     }`}
-                  />
+                  >
+                    {testimonial.company}
+                  </button>
                 ))}
+              </div>
+            </div>
+
+            {/* Enterprise Adoption Timeline */}
+            <div className="mt-12 bg-slate-700/30 rounded-xl p-6">
+              <h4 className="text-xl font-semibold text-white mb-6 text-center">📈 Enterprise Adoption Roadmap</h4>
+              <div className="grid md:grid-cols-4 gap-6">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-white font-bold text-lg">Q1</span>
+                  </div>
+                  <div className="text-sm text-slate-300">Pilot Program</div>
+                  <div className="text-xs text-green-400">50 enterprises</div>
+                </div>
+                
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-white font-bold text-lg">Q2</span>
+                  </div>
+                  <div className="text-sm text-slate-300">Scale Deployment</div>
+                  <div className="text-xs text-blue-400">200 enterprises</div>
+                </div>
+                
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-white font-bold text-lg">Q3</span>
+                  </div>
+                  <div className="text-sm text-slate-300">Market Expansion</div>
+                  <div className="text-xs text-purple-400">500 enterprises</div>
+                </div>
+                
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-white font-bold text-lg">Q4</span>
+                  </div>
+                  <div className="text-sm text-slate-300">Global Dominance</div>
+                  <div className="text-xs text-yellow-400">1000+ enterprises</div>
+                </div>
               </div>
             </div>
           </div>
