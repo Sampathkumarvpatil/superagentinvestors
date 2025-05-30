@@ -1583,7 +1583,7 @@ const BusinessPage = () => {
         </div>
       </section>
 
-      {/* Pricing Tiers */}
+      {/* Interactive Pricing Tiers */}
       <section className="py-24 bg-slate-800/50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -1592,6 +1592,49 @@ const BusinessPage = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {pricingTiers.map((tier) => (
+              <div 
+                key={tier.id}
+                className={`rounded-2xl p-8 border transition-all duration-300 cursor-pointer ${
+                  selectedTier === tier.id
+                    ? 'bg-gradient-to-br from-blue-600/20 to-cyan-600/20 border-blue-500/50 transform scale-105'
+                    : 'bg-slate-700/50 border-slate-600/50 hover:border-slate-500/50'
+                } ${tier.highlight ? 'relative' : ''}`}
+                onClick={() => setSelectedTier(tier.id)}
+              >
+                {tier.highlight && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">Most Popular</span>
+                  </div>
+                )}
+                
+                <h3 className="text-2xl font-bold text-white mb-4">{tier.name}</h3>
+                <div className="mb-6">
+                  {typeof tier.price === 'number' ? (
+                    <div className="text-4xl font-bold text-blue-400">${tier.price}<span className="text-lg text-slate-400">/user/month</span></div>
+                  ) : (
+                    <div className="text-4xl font-bold text-green-400">{tier.price}</div>
+                  )}
+                </div>
+                
+                <ul className="space-y-3 mb-8">
+                  {tier.features.map((feature, index) => (
+                    <li key={index} className="flex items-start space-x-3 text-slate-300">
+                      <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-white text-xs">✓</span>
+                      </div>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <div className="bg-slate-800/50 rounded-xl p-4">
+                  <div className="text-sm text-slate-400 mb-1">Target Market:</div>
+                  <div className="text-sm text-slate-300">{tier.target}</div>
+                </div>
+              </div>
+            ))}
+          </div>
             {/* Starter Tier */}
             <div className="bg-slate-700/50 rounded-2xl p-8 border border-slate-600/50">
               <h3 className="text-2xl font-bold text-white mb-4">Professional</h3>
