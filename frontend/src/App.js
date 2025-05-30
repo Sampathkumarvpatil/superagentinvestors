@@ -626,7 +626,7 @@ const TechnologyPage = () => {
               </div>
               <div>
                 <img 
-                  src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11" 
+                  src="https://images.unsplash.com/photo-1528310263469-da619c84a9a3" 
                   alt="Voice AI Technology" 
                   className="rounded-2xl shadow-2xl w-full h-96 object-cover"
                 />
