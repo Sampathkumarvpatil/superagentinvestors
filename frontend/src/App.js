@@ -408,6 +408,47 @@ const HomePage = () => {
 
 // Technology Page Component
 const TechnologyPage = () => {
+  const [activeDemo, setActiveDemo] = React.useState('voice');
+  const [voiceWave, setVoiceWave] = React.useState([]);
+  const [isProcessing, setIsProcessing] = React.useState(false);
+
+  React.useEffect(() => {
+    // Simulate voice wave animation
+    const interval = setInterval(() => {
+      setVoiceWave(Array.from({length: 20}, () => Math.random() * 100));
+    }, 150);
+    return () => clearInterval(interval);
+  }, []);
+
+  const demoOptions = [
+    { 
+      id: 'voice', 
+      title: 'Real-Time Voice AI', 
+      icon: '🗣️',
+      description: 'Experience natural conversation with AI agents',
+      metrics: { latency: '147ms', accuracy: '98.7%', languages: '12' }
+    },
+    { 
+      id: 'multi-agent', 
+      title: 'Multi-Agent System', 
+      icon: '👥',
+      description: 'Watch AI agents collaborate in real-time',
+      metrics: { agents: '4', communication: 'Live', specialties: '8' }
+    },
+    { 
+      id: 'transcription', 
+      title: 'Smart Transcription', 
+      icon: '📝',
+      description: 'Intelligent context-aware transcription',
+      metrics: { accuracy: '99.2%', speed: 'Real-time', features: '15+' }
+    }
+  ];
+
+  const simulateProcessing = () => {
+    setIsProcessing(true);
+    setTimeout(() => setIsProcessing(false), 3000);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 pt-20">
       {/* Hero Section */}
@@ -423,6 +464,163 @@ const TechnologyPage = () => {
             <p className="text-xl text-slate-300 max-w-4xl mx-auto">
               Breakthrough innovations that enable the world's first real-time conversational AI for meetings
             </p>
+          </div>
+
+          {/* Interactive Demo Selector */}
+          <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 mb-16">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">🔬 Interactive Technology Demo</h3>
+            
+            {/* Demo Tabs */}
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
+              {demoOptions.map((demo) => (
+                <button
+                  key={demo.id}
+                  onClick={() => setActiveDemo(demo.id)}
+                  className={`px-6 py-3 rounded-xl transition-all duration-300 ${
+                    activeDemo === demo.id
+                      ? 'bg-blue-600 text-white shadow-lg'
+                      : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
+                  }`}
+                >
+                  {demo.icon} {demo.title}
+                </button>
+              ))}
+            </div>
+
+            {/* Active Demo Display */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h4 className="text-2xl font-bold text-white mb-4">
+                  {demoOptions.find(d => d.id === activeDemo)?.title}
+                </h4>
+                <p className="text-slate-300 mb-6">
+                  {demoOptions.find(d => d.id === activeDemo)?.description}
+                </p>
+                
+                {/* Live Metrics */}
+                <div className="grid grid-cols-3 gap-4 mb-6">
+                  {Object.entries(demoOptions.find(d => d.id === activeDemo)?.metrics || {}).map(([key, value]) => (
+                    <div key={key} className="bg-slate-700/50 rounded-lg p-3 text-center">
+                      <div className="text-lg font-bold text-blue-400">{value}</div>
+                      <div className="text-xs text-slate-400 capitalize">{key}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <button 
+                  onClick={simulateProcessing}
+                  className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-3 rounded-xl transition-all duration-300"
+                >
+                  {isProcessing ? '🔄 Processing...' : '▶️ Run Demo'}
+                </button>
+              </div>
+
+              <div className="bg-slate-900/50 rounded-xl p-6 border border-slate-600/50">
+                {activeDemo === 'voice' && (
+                  <div className="text-center">
+                    <div className="mb-4">
+                      <div className="text-4xl mb-2">🎤</div>
+                      <div className="text-white font-semibold">Voice AI Processing</div>
+                    </div>
+                    
+                    {/* Animated Voice Wave */}
+                    <div className="flex justify-center items-end space-x-1 h-32 mb-4">
+                      {voiceWave.map((height, index) => (
+                        <div
+                          key={index}
+                          className="bg-gradient-to-t from-blue-600 to-cyan-400 rounded-sm transition-all duration-150"
+                          style={{
+                            width: '4px',
+                            height: `${Math.max(height * 0.8, 10)}px`,
+                            opacity: isProcessing ? 1 : 0.3
+                          }}
+                        />
+                      ))}
+                    </div>
+                    
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-slate-400">Status:</span>
+                        <span className={isProcessing ? 'text-green-400' : 'text-slate-400'}>
+                          {isProcessing ? '● Processing Voice' : '○ Ready'}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-slate-400">Latency:</span>
+                        <span className="text-blue-400">147ms</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-slate-400">Confidence:</span>
+                        <span className="text-green-400">98.7%</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {activeDemo === 'multi-agent' && (
+                  <div>
+                    <div className="text-center mb-4">
+                      <div className="text-2xl mb-2">🤖 Multi-Agent Network</div>
+                    </div>
+                    
+                    {/* Agent Network Visualization */}
+                    <div className="relative h-48">
+                      <div className="absolute top-4 left-4 bg-blue-600 rounded-full p-3 text-white">
+                        AI1
+                      </div>
+                      <div className="absolute top-4 right-4 bg-cyan-600 rounded-full p-3 text-white">
+                        AI2
+                      </div>
+                      <div className="absolute bottom-4 left-4 bg-green-600 rounded-full p-3 text-white">
+                        AI3
+                      </div>
+                      <div className="absolute bottom-4 right-4 bg-purple-600 rounded-full p-3 text-white">
+                        AI4
+                      </div>
+                      
+                      {/* Connection Lines */}
+                      {isProcessing && (
+                        <>
+                          <div className="absolute top-8 left-12 w-16 h-0.5 bg-blue-400 animate-pulse"></div>
+                          <div className="absolute top-8 right-12 w-16 h-0.5 bg-cyan-400 animate-pulse"></div>
+                          <div className="absolute bottom-8 left-12 w-16 h-0.5 bg-green-400 animate-pulse"></div>
+                          <div className="absolute bottom-8 right-12 w-16 h-0.5 bg-purple-400 animate-pulse"></div>
+                        </>
+                      )}
+                    </div>
+                    
+                    <div className="text-xs text-slate-400 text-center">
+                      {isProcessing ? 'Agents communicating in real-time' : 'Multi-agent collaboration ready'}
+                    </div>
+                  </div>
+                )}
+
+                {activeDemo === 'transcription' && (
+                  <div>
+                    <div className="text-center mb-4">
+                      <div className="text-2xl mb-2">📝 Smart Transcription</div>
+                    </div>
+                    
+                    <div className="bg-slate-800/50 rounded-lg p-4 h-32 overflow-y-auto">
+                      {isProcessing ? (
+                        <div className="space-y-2 animate-fadeInUp">
+                          <div className="text-blue-400 text-sm">Speaker 1: "Let's discuss the Q4 roadmap..."</div>
+                          <div className="text-cyan-400 text-sm">AI Agent: "I've identified 3 key compliance checkpoints..."</div>
+                          <div className="text-green-400 text-sm">Legal AI: "GDPR implications detected in features 2 and 5..."</div>
+                        </div>
+                      ) : (
+                        <div className="text-slate-500 text-center">Real-time transcription will appear here</div>
+                      )}
+                    </div>
+                    
+                    <div className="mt-4 flex justify-between text-xs text-slate-400">
+                      <span>Words/min: {isProcessing ? '180' : '0'}</span>
+                      <span>Accuracy: 99.2%</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-16 items-center mb-16">
