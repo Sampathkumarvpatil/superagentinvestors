@@ -1436,6 +1436,134 @@ const MarketPage = () => {
 
 // Business Model Page Component
 const BusinessPage = () => {
+  const [selectedTier, setSelectedTier] = React.useState('enterprise');
+  const [customerCount, setCustomerCount] = React.useState(0);
+  const [growthMetrics, setGrowthMetrics] = React.useState({
+    arr: 0,
+    customers: 0,
+    efficiency: 0
+  });
+
+  React.useEffect(() => {
+    // Animate growth metrics
+    const targetMetrics = {
+      arr: 12,
+      customers: 45,
+      efficiency: 89
+    };
+
+    const animateCounter = (key, target, duration = 2000) => {
+      const start = 0;
+      const startTime = Date.now();
+      
+      const animate = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = Math.floor(start + (target - start) * progress);
+        
+        setGrowthMetrics(prev => ({ ...prev, [key]: value }));
+        
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+      
+      animate();
+    };
+
+    // Stagger the animations
+    setTimeout(() => animateCounter('arr', targetMetrics.arr), 500);
+    setTimeout(() => animateCounter('customers', targetMetrics.customers), 1000);
+    setTimeout(() => animateCounter('efficiency', targetMetrics.efficiency), 1500);
+  }, []);
+
+  const pricingTiers = [
+    {
+      id: 'professional',
+      name: 'Professional',
+      price: 49,
+      features: [
+        '1 AI agent per meeting',
+        'Basic voice interaction',
+        '3 platform integrations',
+        'Standard transcription',
+        'Email support'
+      ],
+      target: 'Mid-market (100-500 employees)',
+      highlight: false
+    },
+    {
+      id: 'enterprise',
+      name: 'Enterprise',
+      price: 99,
+      features: [
+        'Multiple AI agents',
+        'Inter-agent communication',
+        'All platform support',
+        'Advanced analytics',
+        'Custom integrations',
+        'Priority support'
+      ],
+      target: 'Large Enterprise (500+ employees)',
+      highlight: true
+    },
+    {
+      id: 'custom',
+      name: 'Enterprise Plus',
+      price: 'Custom',
+      features: [
+        'Unlimited AI agents',
+        'On-premise deployment',
+        'Custom AI training',
+        'White-label solutions',
+        '24/7 dedicated support',
+        'Custom SLAs'
+      ],
+      target: 'Fortune 500, Government',
+      highlight: false
+    }
+  ];
+
+  // Customer testimonials
+  const testimonials = [
+    {
+      id: 1,
+      name: 'Sarah Mitchell',
+      role: 'CTO',
+      company: 'TechVision Corp',
+      content: 'VoiceAgent AI transformed our board meetings. The multi-agent collaboration provides insights we never had before. ROI was evident within 3 months.',
+      avatar: '👩‍💼',
+      metrics: '340% ROI'
+    },
+    {
+      id: 2,
+      name: 'David Chen',
+      role: 'VP Operations',
+      company: 'Global Finance Inc',
+      content: 'Compliance tracking became effortless. Our legal AI agent catches every regulation mention while our analytics AI provides real-time insights.',
+      avatar: '👨‍💼',
+      metrics: '85% time saved'
+    },
+    {
+      id: 3,
+      name: 'Maria Rodriguez',
+      role: 'Head of Product',
+      company: 'Innovation Labs',
+      content: 'The platform-agnostic approach means we don\'t need to change our workflow. VoiceAgent AI just works everywhere we meet.',
+      avatar: '👩‍🔬',
+      metrics: '12 month payback'
+    }
+  ];
+
+  const [currentTestimonial, setCurrentTestimonial] = React.useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 pt-20">
       {/* Hero Section */}
