@@ -411,6 +411,12 @@ const TechnologyPage = () => {
   const [activeDemo, setActiveDemo] = React.useState('voice');
   const [voiceWave, setVoiceWave] = React.useState([]);
   const [isProcessing, setIsProcessing] = React.useState(false);
+  const [currentMessage, setCurrentMessage] = React.useState('');
+  const [voiceDemo, setVoiceDemo] = React.useState({
+    isPlaying: false,
+    currentText: '',
+    audioIndex: 0
+  });
 
   React.useEffect(() => {
     // Simulate voice wave animation
@@ -444,9 +450,96 @@ const TechnologyPage = () => {
     }
   ];
 
+  // Sample voice demo messages
+  const voiceDemoMessages = [
+    "Hello, I'm VoiceAgent AI. I can actively participate in your meetings with natural voice responses.",
+    "I understand context and can collaborate with other AI agents in real-time to provide comprehensive insights.",
+    "My voice synthesis technology enables human-like conversation with adaptive tone modulation.",
+    "I can join any meeting platform and start contributing immediately. Let me demonstrate our multi-agent capabilities."
+  ];
+
   const simulateProcessing = () => {
     setIsProcessing(true);
-    setTimeout(() => setIsProcessing(false), 3000);
+    
+    if (activeDemo === 'voice') {
+      // Voice demo with text-to-speech simulation
+      setVoiceDemo({ isPlaying: true, currentText: '', audioIndex: 0 });
+      
+      const message = voiceDemoMessages[Math.floor(Math.random() * voiceDemoMessages.length)];
+      
+      // Simulate typing effect
+      let charIndex = 0;
+      const typingInterval = setInterval(() => {
+        if (charIndex < message.length) {
+          setCurrentMessage(message.substring(0, charIndex + 1));
+          charIndex++;
+        } else {
+          clearInterval(typingInterval);
+          setTimeout(() => {
+            setVoiceDemo({ isPlaying: false, currentText: '', audioIndex: 0 });
+            setCurrentMessage('');
+          }, 1000);
+        }
+      }, 80);
+      
+      setTimeout(() => {
+        setIsProcessing(false);
+      }, message.length * 80 + 1000);
+      
+    } else {
+      setTimeout(() => setIsProcessing(false), 3000);
+    }
+  };
+
+  // Text-to-Speech function (for browsers that support it)
+  const speakText = (text) => {
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 0.9;
+      utterance.pitch = 1.1;
+      utterance.volume = 0.8;
+      
+      // Try to use a more natural voice
+      const voices = speechSynthesis.getVoices();
+      const preferredVoice = voices.find(voice => 
+        voice.name.includes('Google') || 
+        voice.name.includes('Microsoft') || 
+        voice.lang.includes('en-US')
+      );
+      if (preferredVoice) {
+        utterance.voice = preferredVoice;
+      }
+      
+      speechSynthesis.speak(utterance);
+      return true;
+    }
+    return false;
+  };
+
+  const runVoiceDemo = () => {
+    const message = voiceDemoMessages[Math.floor(Math.random() * voiceDemoMessages.length)];
+    
+    setIsProcessing(true);
+    setVoiceDemo({ isPlaying: true, currentText: '', audioIndex: 0 });
+    
+    // Attempt to play audio
+    const canSpeak = speakText(message);
+    
+    // Visual typing effect
+    let charIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (charIndex < message.length) {
+        setCurrentMessage(message.substring(0, charIndex + 1));
+        charIndex++;
+      } else {
+        clearInterval(typingInterval);
+        setTimeout(() => {
+          setVoiceDemo({ isPlaying: false, currentText: '', audioIndex: 0 });
+          setCurrentMessage('');
+          setIsProcessing(false);
+        }, 2000);
+      }
+    }, 60);
   };
 
   return (
@@ -507,12 +600,29 @@ const TechnologyPage = () => {
                   ))}
                 </div>
 
-                <button 
-                  onClick={simulateProcessing}
-                  className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-3 rounded-xl transition-all duration-300"
-                >
-                  {isProcessing ? '🔄 Processing...' : '▶️ Run Demo'}
-                </button>
+                <div className="space-y-3">
+                  {activeDemo === 'voice' ? (
+                    <button 
+                      onClick={runVoiceDemo}
+                      className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-3 rounded-xl transition-all duration-300 w-full"
+                    >
+                      {isProcessing ? '🔊 Speaking...' : '🎤 Hear Voice AI'}
+                    </button>
+                  ) : (
+                    <button 
+                      onClick={simulateProcessing}
+                      className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-3 rounded-xl transition-all duration-300 w-full"
+                    >
+                      {isProcessing ? '🔄 Processing...' : '▶️ Run Demo'}
+                    </button>
+                  )}
+                  
+                  {activeDemo === 'voice' && (
+                    <div className="text-xs text-slate-400 text-center">
+                      🔊 Enable audio in your browser to hear AI voice synthesis
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div className="bg-slate-900/50 rounded-xl p-6 border border-slate-600/50">
@@ -521,6 +631,9 @@ const TechnologyPage = () => {
                     <div className="mb-4">
                       <div className="text-4xl mb-2">🎤</div>
                       <div className="text-white font-semibold">Voice AI Processing</div>
+                      {voiceDemo.isPlaying && (
+                        <div className="text-sm text-blue-400 mt-1">🔊 Audio Playing</div>
+                      )}
                     </div>
                     
                     {/* Animated Voice Wave */}
@@ -537,6 +650,17 @@ const TechnologyPage = () => {
                         />
                       ))}
                     </div>
+                    
+                    {/* Live Voice Output */}
+                    {currentMessage && (
+                      <div className="bg-slate-800/50 rounded-lg p-4 mb-4 min-h-[60px]">
+                        <div className="text-sm text-slate-400 mb-1">AI Voice Output:</div>
+                        <div className="text-slate-200 text-sm leading-relaxed">
+                          "{currentMessage}"
+                          {isProcessing && <span className="animate-pulse">|</span>}
+                        </div>
+                      </div>
+                    )}
                     
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
@@ -565,26 +689,26 @@ const TechnologyPage = () => {
                     
                     {/* Agent Network Visualization */}
                     <div className="relative h-48">
-                      <div className="absolute top-4 left-4 bg-blue-600 rounded-full p-3 text-white">
+                      <div className="absolute top-4 left-4 bg-blue-600 rounded-full p-3 text-white text-sm font-semibold">
                         AI1
                       </div>
-                      <div className="absolute top-4 right-4 bg-cyan-600 rounded-full p-3 text-white">
+                      <div className="absolute top-4 right-4 bg-cyan-600 rounded-full p-3 text-white text-sm font-semibold">
                         AI2
                       </div>
-                      <div className="absolute bottom-4 left-4 bg-green-600 rounded-full p-3 text-white">
+                      <div className="absolute bottom-4 left-4 bg-green-600 rounded-full p-3 text-white text-sm font-semibold">
                         AI3
                       </div>
-                      <div className="absolute bottom-4 right-4 bg-purple-600 rounded-full p-3 text-white">
+                      <div className="absolute bottom-4 right-4 bg-purple-600 rounded-full p-3 text-white text-sm font-semibold">
                         AI4
                       </div>
                       
                       {/* Connection Lines */}
                       {isProcessing && (
                         <>
-                          <div className="absolute top-8 left-12 w-16 h-0.5 bg-blue-400 animate-pulse"></div>
-                          <div className="absolute top-8 right-12 w-16 h-0.5 bg-cyan-400 animate-pulse"></div>
-                          <div className="absolute bottom-8 left-12 w-16 h-0.5 bg-green-400 animate-pulse"></div>
-                          <div className="absolute bottom-8 right-12 w-16 h-0.5 bg-purple-400 animate-pulse"></div>
+                          <div className="absolute top-8 left-16 w-20 h-0.5 bg-blue-400 animate-pulse"></div>
+                          <div className="absolute top-16 right-8 w-0.5 h-20 bg-cyan-400 animate-pulse"></div>
+                          <div className="absolute bottom-16 left-8 w-0.5 h-20 bg-green-400 animate-pulse"></div>
+                          <div className="absolute bottom-8 left-16 w-20 h-0.5 bg-purple-400 animate-pulse"></div>
                         </>
                       )}
                     </div>
