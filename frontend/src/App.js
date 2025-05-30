@@ -1736,12 +1736,123 @@ const BusinessPage = () => {
         </div>
       </section>
 
-      {/* Advanced Revenue Streams */}
+      {/* Advanced Revenue Streams & Investment Simulator */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Multiple Revenue Streams</h2>
-            <p className="text-xl text-slate-300">Diversified income sources beyond core subscription revenue</p>
+            <h2 className="text-4xl font-bold text-white mb-6">Premium Revenue Ecosystem</h2>
+            <p className="text-xl text-slate-300">Advanced revenue diversification with AI-powered growth acceleration</p>
+          </div>
+
+          {/* Interactive Investment Simulator */}
+          <div className="bg-gradient-to-r from-slate-800/80 to-blue-800/80 backdrop-blur-xl rounded-2xl p-8 border border-blue-500/50 mb-12">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">🎯 Investment Impact Simulator</h3>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-xl font-semibold text-white mb-6">Investment Scenarios</h4>
+                
+                <div className="space-y-4">
+                  <div className="bg-slate-700/50 rounded-xl p-6 border border-green-500/30">
+                    <div className="flex justify-between items-center mb-4">
+                      <div>
+                        <div className="text-lg font-bold text-white">Conservative Growth</div>
+                        <div className="text-sm text-slate-400">$25M Series A</div>
+                      </div>
+                      <div className="text-2xl font-bold text-green-400">12x</div>
+                    </div>
+                    <div className="grid grid-cols-3 gap-4 text-sm">
+                      <div>
+                        <div className="text-slate-400">3-Year ARR</div>
+                        <div className="text-white font-semibold">$85M</div>
+                      </div>
+                      <div>
+                        <div className="text-slate-400">Exit Value</div>
+                        <div className="text-white font-semibold">$1.2B</div>
+                      </div>
+                      <div>
+                        <div className="text-slate-400">IRR</div>
+                        <div className="text-green-400 font-semibold">67%</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-slate-700/50 rounded-xl p-6 border border-blue-500/30">
+                    <div className="flex justify-between items-center mb-4">
+                      <div>
+                        <div className="text-lg font-bold text-white">Accelerated Growth</div>
+                        <div className="text-sm text-slate-400">$35M Series A</div>
+                      </div>
+                      <div className="text-2xl font-bold text-blue-400">18x</div>
+                    </div>
+                    <div className="grid grid-cols-3 gap-4 text-sm">
+                      <div>
+                        <div className="text-slate-400">3-Year ARR</div>
+                        <div className="text-white font-semibold">$150M</div>
+                      </div>
+                      <div>
+                        <div className="text-slate-400">Exit Value</div>
+                        <div className="text-white font-semibold">$2.1B</div>
+                      </div>
+                      <div>
+                        <div className="text-slate-400">IRR</div>
+                        <div className="text-blue-400 font-semibold">89%</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-slate-700/50 rounded-xl p-6 border border-purple-500/30">
+                    <div className="flex justify-between items-center mb-4">
+                      <div>
+                        <div className="text-lg font-bold text-white">Dominant Market Position</div>
+                        <div className="text-sm text-slate-400">$50M Series A</div>
+                      </div>
+                      <div className="text-2xl font-bold text-purple-400">25x</div>
+                    </div>
+                    <div className="grid grid-cols-3 gap-4 text-sm">
+                      <div>
+                        <div className="text-slate-400">3-Year ARR</div>
+                        <div className="text-white font-semibold">$250M</div>
+                      </div>
+                      <div>
+                        <div className="text-slate-400">Exit Value</div>
+                        <div className="text-white font-semibold">$3.5B</div>
+                      </div>
+                      <div>
+                        <div className="text-slate-400">IRR</div>
+                        <div className="text-purple-400 font-semibold">112%</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="text-xl font-semibold text-white mb-6">Strategic Investment Benefits</h4>
+                
+                <div className="space-y-6">
+                  <div className="bg-yellow-900/30 rounded-lg p-4 border border-yellow-500/30">
+                    <h5 className="text-lg font-semibold text-yellow-400 mb-2">Market Timing Advantage</h5>
+                    <p className="text-slate-300 text-sm">AI adoption curve accelerating with 340% YoY enterprise demand growth</p>
+                  </div>
+                  
+                  <div className="bg-green-900/30 rounded-lg p-4 border border-green-500/30">
+                    <h5 className="text-lg font-semibold text-green-400 mb-2">Technology Moat</h5>
+                    <p className="text-slate-300 text-sm">18-month lead time creates defensible competitive position with patent portfolio</p>
+                  </div>
+                  
+                  <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-500/30">
+                    <h5 className="text-lg font-semibold text-blue-400 mb-2">Network Effects</h5>
+                    <p className="text-slate-300 text-sm">Viral adoption through meeting participants experiencing value firsthand</p>
+                  </div>
+                  
+                  <div className="bg-purple-900/30 rounded-lg p-4 border border-purple-500/30">
+                    <h5 className="text-lg font-semibold text-purple-400 mb-2">AI Learning Advantage</h5>
+                    <p className="text-slate-300 text-sm">Data compounding effect - AI improves with every meeting, creating switching costs</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -1749,16 +1860,20 @@ const BusinessPage = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-2xl">💰</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Core SaaS</h3>
-              <p className="text-slate-300 mb-4">Monthly/annual subscription revenue from user licenses</p>
+              <h3 className="text-xl font-bold text-white mb-4">Core SaaS Platform</h3>
+              <p className="text-slate-300 mb-4">Multi-tier subscription model with enterprise-grade features</p>
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="text-slate-400">Revenue Share:</span>
-                  <span className="text-green-400 font-semibold">85%</span>
+                  <span className="text-green-400 font-semibold">78%</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-400">Projected (Y3):</span>
-                  <span className="text-white font-semibold">$30M</span>
+                  <span className="text-white font-semibold">$117M</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-400">Growth Rate:</span>
+                  <span className="text-green-400 font-semibold">+156% YoY</span>
                 </div>
               </div>
             </div>
@@ -1767,16 +1882,20 @@ const BusinessPage = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-2xl">🔧</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Professional Services</h3>
-              <p className="text-slate-300 mb-4">Custom integration, training, and consulting services</p>
+              <h3 className="text-xl font-bold text-white mb-4">Enterprise Services</h3>
+              <p className="text-slate-300 mb-4">Custom AI training, integration, and consulting services</p>
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="text-slate-400">Revenue Share:</span>
-                  <span className="text-blue-400 font-semibold">8%</span>
+                  <span className="text-blue-400 font-semibold">12%</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-400">Projected (Y3):</span>
-                  <span className="text-white font-semibold">$3M</span>
+                  <span className="text-white font-semibold">$18M</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-400">Margin:</span>
+                  <span className="text-blue-400 font-semibold">67%</span>
                 </div>
               </div>
             </div>
@@ -1785,16 +1904,20 @@ const BusinessPage = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-2xl">📊</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Data Insights</h3>
-              <p className="text-slate-300 mb-4">Anonymized industry benchmarks and analytics products</p>
+              <h3 className="text-xl font-bold text-white mb-4">AI Data Intelligence</h3>
+              <p className="text-slate-300 mb-4">Anonymized industry insights and benchmarking products</p>
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="text-slate-400">Revenue Share:</span>
-                  <span className="text-purple-400 font-semibold">5%</span>
+                  <span className="text-purple-400 font-semibold">7%</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-400">Projected (Y3):</span>
-                  <span className="text-white font-semibold">$2M</span>
+                  <span className="text-white font-semibold">$10.5M</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-400">Margin:</span>
+                  <span className="text-purple-400 font-semibold">89%</span>
                 </div>
               </div>
             </div>
@@ -1803,16 +1926,20 @@ const BusinessPage = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-2xl">🏪</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">AI Marketplace</h3>
-              <p className="text-slate-300 mb-4">Third-party AI agent marketplace and revenue sharing</p>
+              <h3 className="text-xl font-bold text-white mb-4">AI Agent Marketplace</h3>
+              <p className="text-slate-300 mb-4">Third-party AI specialist marketplace with revenue sharing</p>
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="text-slate-400">Revenue Share:</span>
-                  <span className="text-yellow-400 font-semibold">2%</span>
+                  <span className="text-yellow-400 font-semibold">3%</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-400">Projected (Y3):</span>
-                  <span className="text-white font-semibold">$1M</span>
+                  <span className="text-white font-semibold">$4.5M</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-400">Take Rate:</span>
+                  <span className="text-yellow-400 font-semibold">30%</span>
                 </div>
               </div>
             </div>
