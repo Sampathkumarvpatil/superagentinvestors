@@ -1948,189 +1948,212 @@ const BusinessPage = () => {
         </div>
       </section>
 
-      {/* Advanced Investment Metrics Dashboard */}
-      <section className="py-24 bg-gradient-to-r from-slate-900 via-purple-900 to-blue-900">
+      {/* Ultimate Investment Dashboard */}
+      <section className="py-24 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">
-              Premium Investment
-              <span className="block bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+            <h2 className="text-5xl font-bold text-white mb-6">
+              🚀 Elite Investor
+              <span className="block bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent">
                 Opportunity
               </span>
             </h2>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Exclusive Tier 1 investor opportunity with enhanced terms and accelerated growth trajectory
+            <p className="text-xl text-slate-300 max-w-4xl mx-auto">
+              Exclusive access to the next unicorn in conversational AI - projected $5B+ valuation within 5 years
             </p>
           </div>
 
-          {/* Enhanced Valuation Metrics */}
-          <div className="grid md:grid-cols-4 gap-6 mb-12">
-            <div className="bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-yellow-500/50">
+          {/* Premium Investment Metrics */}
+          <div className="grid md:grid-cols-5 gap-6 mb-16">
+            <div className="bg-gradient-to-br from-yellow-600/20 to-orange-600/20 backdrop-blur-xl rounded-2xl p-6 border border-yellow-500/50 hover:border-yellow-400/70 transition-all duration-300">
               <div className="text-center">
-                <div className="text-3xl mb-2">💎</div>
-                <div className="text-3xl font-bold text-yellow-400">$35M</div>
-                <div className="text-slate-300">Series A Target</div>
-                <div className="text-yellow-300 text-sm mt-1">Premium Round</div>
+                <div className="text-4xl mb-3">👑</div>
+                <div className="text-3xl font-bold text-yellow-400">$75M</div>
+                <div className="text-slate-300 text-sm">Series A Max</div>
+                <div className="text-yellow-300 text-xs mt-1">Elite Round</div>
               </div>
             </div>
             
-            <div className="bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-green-500/50">
+            <div className="bg-gradient-to-br from-green-600/20 to-emerald-600/20 backdrop-blur-xl rounded-2xl p-6 border border-green-500/50 hover:border-green-400/70 transition-all duration-300">
               <div className="text-center">
-                <div className="text-3xl mb-2">🚀</div>
-                <div className="text-3xl font-bold text-green-400">$150M</div>
-                <div className="text-slate-300">ARR by Year 3</div>
-                <div className="text-green-300 text-sm mt-1">Accelerated Growth</div>
+                <div className="text-4xl mb-3">📈</div>
+                <div className="text-3xl font-bold text-green-400">$500M</div>
+                <div className="text-slate-300 text-sm">ARR Target</div>
+                <div className="text-green-300 text-xs mt-1">Year 4</div>
               </div>
             </div>
             
-            <div className="bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-blue-500/50">
+            <div className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 backdrop-blur-xl rounded-2xl p-6 border border-blue-500/50 hover:border-blue-400/70 transition-all duration-300">
               <div className="text-center">
-                <div className="text-3xl mb-2">🎯</div>
-                <div className="text-3xl font-bold text-blue-400">$3.5B</div>
-                <div className="text-slate-300">Exit Valuation</div>
-                <div className="text-blue-300 text-sm mt-1">Target Range</div>
+                <div className="text-4xl mb-3">🎯</div>
+                <div className="text-3xl font-bold text-blue-400">$7.5B</div>
+                <div className="text-slate-300 text-sm">Peak Valuation</div>
+                <div className="text-blue-300 text-xs mt-1">IPO Ready</div>
               </div>
             </div>
             
-            <div className="bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-purple-500/50">
+            <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-xl rounded-2xl p-6 border border-purple-500/50 hover:border-purple-400/70 transition-all duration-300">
               <div className="text-center">
-                <div className="text-3xl mb-2">⚡</div>
-                <div className="text-3xl font-bold text-purple-400">15-20x</div>
-                <div className="text-slate-300">Investor Returns</div>
-                <div className="text-purple-300 text-sm mt-1">5-Year Horizon</div>
+                <div className="text-4xl mb-3">💎</div>
+                <div className="text-3xl font-bold text-purple-400">45x</div>
+                <div className="text-slate-300 text-sm">Max Returns</div>
+                <div className="text-purple-300 text-xs mt-1">Premium Tier</div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-red-600/20 to-pink-600/20 backdrop-blur-xl rounded-2xl p-6 border border-red-500/50 hover:border-red-400/70 transition-all duration-300">
+              <div className="text-center">
+                <div className="text-4xl mb-3">⚡</div>
+                <div className="text-3xl font-bold text-red-400">36mo</div>
+                <div className="text-slate-300 text-sm">Tech Lead</div>
+                <div className="text-red-300 text-xs mt-1">Unbeatable</div>
               </div>
             </div>
           </div>
 
-          {/* Advanced Market Intelligence */}
-          <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 mb-12">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">🧠 Market Intelligence Hub</h3>
+          {/* Advanced Market Domination Strategy */}
+          <div className="bg-slate-800/70 backdrop-blur-xl rounded-2xl p-8 border border-slate-600/50 mb-12">
+            <h3 className="text-3xl font-bold text-white mb-8 text-center">🌍 Global Market Domination Strategy</h3>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 rounded-xl p-6 border border-blue-500/30">
+                <h4 className="text-xl font-bold text-blue-400 mb-4">Phase 1: US Domination</h4>
+                <div className="space-y-3">
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Fortune 500 Penetration</span>
+                    <span className="text-blue-400 font-bold">78%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Market Share</span>
+                    <span className="text-blue-400 font-bold">23%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Revenue</span>
+                    <span className="text-blue-400 font-bold">$180M</span>
+                  </div>
+                  <div className="text-xs text-blue-300 mt-2">Timeline: 18 months</div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl p-6 border border-purple-500/30">
+                <h4 className="text-xl font-bold text-purple-400 mb-4">Phase 2: Global Expansion</h4>
+                <div className="space-y-3">
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">International Markets</span>
+                    <span className="text-purple-400 font-bold">12</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Global Customers</span>
+                    <span className="text-purple-400 font-bold">2,500+</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Revenue</span>
+                    <span className="text-purple-400 font-bold">$350M</span>
+                  </div>
+                  <div className="text-xs text-purple-300 mt-2">Timeline: 30 months</div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-green-900/40 to-emerald-900/40 rounded-xl p-6 border border-green-500/30">
+                <h4 className="text-xl font-bold text-green-400 mb-4">Phase 3: Market Leadership</h4>
+                <div className="space-y-3">
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Global Market Share</span>
+                    <span className="text-green-400 font-bold">67%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Enterprise Customers</span>
+                    <span className="text-green-400 font-bold">10,000+</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Revenue</span>
+                    <span className="text-green-400 font-bold">$750M</span>
+                  </div>
+                  <div className="text-xs text-green-300 mt-2">Timeline: 48 months</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* AI Innovation Roadmap */}
+          <div className="bg-slate-800/70 backdrop-blur-xl rounded-2xl p-8 border border-slate-600/50">
+            <h3 className="text-3xl font-bold text-white mb-8 text-center">🧠 AI Innovation Roadmap</h3>
             
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h4 className="text-xl font-semibold text-white mb-4">Competitive Moat Analysis</h4>
+                <h4 className="text-2xl font-semibold text-white mb-6">Next-Gen AI Capabilities</h4>
+                
                 <div className="space-y-4">
-                  <div className="bg-green-900/30 rounded-lg p-4 border border-green-500/30">
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-300">Technology Barrier</span>
-                      <span className="text-green-400 font-bold">24 months</span>
+                  <div className="bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-lg p-4 border border-blue-500/30">
+                    <div className="flex items-center space-x-3 mb-2">
+                      <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                        <span className="text-white text-sm font-bold">1</span>
+                      </div>
+                      <h5 className="text-lg font-bold text-blue-400">Emotional AI Integration</h5>
                     </div>
-                    <div className="text-sm text-green-300 mt-1">Patent portfolio + AI training data</div>
+                    <p className="text-slate-300 text-sm">AI agents that understand and respond to emotional context in meetings</p>
+                    <div className="text-xs text-blue-300 mt-2">Q2 2024 • Patent Pending</div>
                   </div>
                   
-                  <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-500/30">
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-300">Network Effects</span>
-                      <span className="text-blue-400 font-bold">Exponential</span>
+                  <div className="bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg p-4 border border-green-500/30">
+                    <div className="flex items-center space-x-3 mb-2">
+                      <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                        <span className="text-white text-sm font-bold">2</span>
+                      </div>
+                      <h5 className="text-lg font-bold text-green-400">Predictive Analytics</h5>
                     </div>
-                    <div className="text-sm text-blue-300 mt-1">Meeting participants become advocates</div>
+                    <p className="text-slate-300 text-sm">AI predicts meeting outcomes and suggests optimal strategies</p>
+                    <div className="text-xs text-green-300 mt-2">Q3 2024 • Research Phase</div>
                   </div>
                   
-                  <div className="bg-purple-900/30 rounded-lg p-4 border border-purple-500/30">
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-300">Data Advantage</span>
-                      <span className="text-purple-400 font-bold">Compounding</span>
+                  <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg p-4 border border-purple-500/30">
+                    <div className="flex items-center space-x-3 mb-2">
+                      <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                        <span className="text-white text-sm font-bold">3</span>
+                      </div>
+                      <h5 className="text-lg font-bold text-purple-400">Holographic Presence</h5>
                     </div>
-                    <div className="text-sm text-purple-300 mt-1">AI improves with every meeting</div>
+                    <p className="text-slate-300 text-sm">3D AI avatars with realistic presence in virtual meetings</p>
+                    <div className="text-xs text-purple-300 mt-2">Q1 2025 • Prototype</div>
                   </div>
                 </div>
               </div>
               
               <div>
-                <h4 className="text-xl font-semibold text-white mb-4">Enterprise Pipeline</h4>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg">
-                    <div>
-                      <div className="text-white font-semibold">Fortune 100 Prospects</div>
-                      <div className="text-slate-400 text-sm">Enterprise deals $500K+ ACV</div>
+                <h4 className="text-2xl font-semibold text-white mb-6">Enterprise Platform Evolution</h4>
+                
+                <div className="space-y-6">
+                  <div className="text-center">
+                    <div className="w-32 h-32 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform duration-300">
+                      <div>
+                        <div className="text-2xl font-bold text-white">99.9%</div>
+                        <div className="text-yellow-100 text-xs">Accuracy</div>
+                      </div>
                     </div>
-                    <div className="text-2xl font-bold text-green-400">47</div>
+                    <div className="text-slate-300">Voice Recognition Target</div>
+                    <div className="text-yellow-400 text-sm mt-1">Human-level Performance</div>
                   </div>
                   
-                  <div className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg">
-                    <div>
-                      <div className="text-white font-semibold">Active Pilots</div>
-                      <div className="text-slate-400 text-sm">90-day proof of concept</div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-slate-700/50 rounded-lg p-4 text-center">
+                      <div className="text-2xl font-bold text-cyan-400">150+</div>
+                      <div className="text-slate-300 text-sm">Languages</div>
                     </div>
-                    <div className="text-2xl font-bold text-blue-400">23</div>
-                  </div>
-                  
-                  <div className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg">
-                    <div>
-                      <div className="text-white font-semibold">Signed LOIs</div>
-                      <div className="text-slate-400 text-sm">Letters of intent pending</div>
+                    
+                    <div className="bg-slate-700/50 rounded-lg p-4 text-center">
+                      <div className="text-2xl font-bold text-green-400">1M+</div>
+                      <div className="text-slate-300 text-sm">Concurrent</div>
                     </div>
-                    <div className="text-2xl font-bold text-purple-400">12</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Enhanced Technology Metrics */}
-          <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">⚡ Advanced Technology Stack</h3>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🧠</span>
-                </div>
-                <h4 className="text-lg font-bold text-white mb-2">AI Model Performance</h4>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Voice Recognition:</span>
-                    <span className="text-blue-400">99.7%</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Context Understanding:</span>
-                    <span className="text-cyan-400">97.3%</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Response Relevance:</span>
-                    <span className="text-green-400">95.8%</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">⚡</span>
-                </div>
-                <h4 className="text-lg font-bold text-white mb-2">Infrastructure Scale</h4>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Concurrent Meetings:</span>
-                    <span className="text-green-400">50,000+</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Global Latency:</span>
-                    <span className="text-teal-400">&lt;150ms</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Uptime SLA:</span>
-                    <span className="text-blue-400">99.99%</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🔒</span>
-                </div>
-                <h4 className="text-lg font-bold text-white mb-2">Security & Compliance</h4>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">SOC 2 Type II:</span>
-                    <span className="text-purple-400">Certified</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">GDPR Compliant:</span>
-                    <span className="text-pink-400">Full</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Enterprise Ready:</span>
-                    <span className="text-green-400">100%</span>
+                    
+                    <div className="bg-slate-700/50 rounded-lg p-4 text-center">
+                      <div className="text-2xl font-bold text-blue-400">&lt;50ms</div>
+                      <div className="text-slate-300 text-sm">Latency</div>
+                    </div>
+                    
+                    <div className="bg-slate-700/50 rounded-lg p-4 text-center">
+                      <div className="text-2xl font-bold text-purple-400">100%</div>
+                      <div className="text-slate-300 text-sm">Uptime</div>
+                    </div>
                   </div>
                 </div>
               </div>
