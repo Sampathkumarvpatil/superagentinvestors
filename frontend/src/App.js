@@ -2272,9 +2272,9 @@ const InvestorsPage = () => {
                   <h4 className="text-white font-semibold mb-2">Background:</h4>
                   <ul className="space-y-1 text-sm">
                     <li>• PhD in Computer Science, AI specialization</li>
-                    <li>• Previously CTO at enterprise AI startup (acquired)</li>
-                    <li>• 12 patents in voice processing technology</li>
-                    <li>• Published researcher in top-tier AI conferences</li>
+                    <li>• Previously CEO at Infogen Labs (acquired)</li>
+                    <li>• Multiple patents in voice processing technology</li>
+                    <li>• Achieved a world record by launching over 100 AI products, producing 35+ AI news podcasts, and publishing more than 2,500 AI-related blog posts.</li>
                   </ul>
                 </div>
               </div>
@@ -2308,10 +2308,10 @@ const InvestorsPage = () => {
                 <div>
                   <h4 className="text-white font-semibold mb-2">Background:</h4>
                   <ul className="space-y-1 text-sm">
-                    <li>• PhD in Distributed Systems & AI</li>
-                    <li>• Former Principal Engineer at major cloud provider</li>
-                    <li>• Expert in real-time audio processing at scale</li>
-                    <li>• 20+ years in enterprise software development</li>
+                    <li>• PhD in AI & ML</li>
+                    <li>• Expert in Product Development</li>
+                    <li>• 12+ years in enterprise software development</li>
+                    <li>• Achieved a world record by launching over 100 AI products, producing 35+ AI news podcasts, and publishing more than 2,500 AI-related blog posts.</li>
                   </ul>
                 </div>
               </div>
