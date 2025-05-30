@@ -637,7 +637,7 @@ const TechnologyPage = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <img 
-                  src="https://images.unsplash.com/photo-1517048676732-d65bc937f952" 
+                  src="https://images.pexels.com/photos/17485657/pexels-photo-17485657.png" 
                   alt="Multi-Agent Collaboration" 
                   className="rounded-2xl shadow-2xl w-full h-96 object-cover"
                 />
