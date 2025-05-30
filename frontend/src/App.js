@@ -440,7 +440,7 @@ const VoiceAgentLanding = () => {
                 <div className="text-slate-400">Gross Margin</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-cyan-400">< 5%</div>
+                <div className="text-2xl font-bold text-cyan-400">&lt; 5%</div>
                 <div className="text-slate-400">Monthly Churn</div>
               </div>
               <div>
