@@ -1591,7 +1591,6 @@ const BusinessPage = () => {
             <p className="text-xl text-slate-300">Strategic pricing to capture value across market segments</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
             {pricingTiers.map((tier) => (
               <div 
                 key={tier.id}
@@ -1634,80 +1633,6 @@ const BusinessPage = () => {
                 </div>
               </div>
             ))}
-          </div>
-            {/* Starter Tier */}
-            <div className="bg-slate-700/50 rounded-2xl p-8 border border-slate-600/50">
-              <h3 className="text-2xl font-bold text-white mb-4">Professional</h3>
-              <div className="text-4xl font-bold text-blue-400 mb-6">$49<span className="text-lg text-slate-400">/user/month</span></div>
-              
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-white mb-3">Core Features:</h4>
-                <ul className="space-y-2 text-slate-300">
-                  <li>• 1 AI agent per meeting</li>
-                  <li>• Basic voice interaction</li>
-                  <li>• 3 platform integrations</li>
-                  <li>• Standard transcription</li>
-                  <li>• Email support</li>
-                </ul>
-              </div>
-              
-              <div className="bg-blue-900/30 rounded-xl p-4">
-                <div className="text-sm text-blue-400 font-semibold mb-2">Target Market:</div>
-                <div className="text-sm text-slate-300">Mid-market (100-500 employees)</div>
-                <div className="text-sm text-green-400 mt-2">Est. 50,000 users by Year 3</div>
-              </div>
-            </div>
-
-            {/* Enterprise Tier */}
-            <div className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-2xl p-8 border border-blue-500/50 transform scale-105">
-              <div className="text-center mb-4">
-                <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Most Popular</span>
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Enterprise</h3>
-              <div className="text-4xl font-bold text-cyan-400 mb-6">$99<span className="text-lg text-slate-400">/user/month</span></div>
-              
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-white mb-3">Advanced Features:</h4>
-                <ul className="space-y-2 text-slate-300">
-                  <li>• Multiple AI agents</li>
-                  <li>• Inter-agent communication</li>
-                  <li>• All platform support</li>
-                  <li>• Advanced analytics</li>
-                  <li>• Custom integrations</li>
-                  <li>• Priority support</li>
-                </ul>
-              </div>
-              
-              <div className="bg-cyan-900/30 rounded-xl p-4">
-                <div className="text-sm text-cyan-400 font-semibold mb-2">Target Market:</div>
-                <div className="text-sm text-slate-300">Large Enterprise (500+ employees)</div>
-                <div className="text-sm text-green-400 mt-2">Est. 30,000 users by Year 3</div>
-              </div>
-            </div>
-
-            {/* Custom Tier */}
-            <div className="bg-slate-700/50 rounded-2xl p-8 border border-slate-600/50">
-              <h3 className="text-2xl font-bold text-white mb-4">Enterprise Plus</h3>
-              <div className="text-4xl font-bold text-green-400 mb-6">Custom</div>
-              
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-white mb-3">Premium Features:</h4>
-                <ul className="space-y-2 text-slate-300">
-                  <li>• Unlimited AI agents</li>
-                  <li>• On-premise deployment</li>
-                  <li>• Custom AI training</li>
-                  <li>• White-label solutions</li>
-                  <li>• 24/7 dedicated support</li>
-                  <li>• Custom SLAs</li>
-                </ul>
-              </div>
-              
-              <div className="bg-green-900/30 rounded-xl p-4">
-                <div className="text-sm text-green-400 font-semibold mb-2">Target Market:</div>
-                <div className="text-sm text-slate-300">Fortune 500, Government</div>
-                <div className="text-sm text-green-400 mt-2">$200-500K+ per contract</div>
-              </div>
-            </div>
           </div>
 
           {/* Customer Success Stories */}
