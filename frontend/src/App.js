@@ -914,6 +914,47 @@ const TechnologyPage = () => {
 
 // Market Analysis Page Component
 const MarketPage = () => {
+  const [roiInputs, setROIInputs] = React.useState({
+    employees: 1000,
+    meetingsPerWeek: 20,
+    avgMeetingDuration: 60,
+    currentSolution: 'basic'
+  });
+  
+  const [roiResults, setROIResults] = React.useState({});
+
+  React.useEffect(() => {
+    calculateROI();
+  }, [roiInputs]);
+
+  const calculateROI = () => {
+    const { employees, meetingsPerWeek, avgMeetingDuration } = roiInputs;
+    
+    // Current costs (inefficient meetings)
+    const avgSalary = 75000; // Average employee salary
+    const hourlyRate = avgSalary / (52 * 40);
+    const weeklyMeetingHours = (meetingsPerWeek * avgMeetingDuration) / 60;
+    const currentWeeklyCost = weeklyMeetingHours * hourlyRate * employees * 0.35; // 35% meeting inefficiency
+    const currentAnnualCost = currentWeeklyCost * 52;
+    
+    // VoiceAgent AI benefits
+    const efficiencyImprovement = 0.4; // 40% efficiency improvement
+    const annualSavings = currentAnnualCost * efficiencyImprovement;
+    const voiceAgentCost = employees * 99 * 12; // $99/user/month
+    const netBenefit = annualSavings - voiceAgentCost;
+    const roi = ((netBenefit / voiceAgentCost) * 100).toFixed(0);
+    const paybackMonths = (voiceAgentCost / (annualSavings / 12)).toFixed(1);
+    
+    setROIResults({
+      currentAnnualCost: currentAnnualCost.toLocaleString(),
+      annualSavings: annualSavings.toLocaleString(),
+      voiceAgentCost: voiceAgentCost.toLocaleString(),
+      netBenefit: netBenefit.toLocaleString(),
+      roi,
+      paybackMonths
+    });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 pt-20">
       {/* Hero Section */}
@@ -929,6 +970,105 @@ const MarketPage = () => {
             <p className="text-xl text-slate-300 max-w-4xl mx-auto">
               The convergence of AI advancement and remote work adoption creates an unprecedented opportunity in the meeting technology space
             </p>
+          </div>
+
+          {/* Interactive ROI Calculator */}
+          <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 mb-16">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">💰 Enterprise ROI Calculator</h3>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-xl font-semibold text-white mb-6">Your Organization</h4>
+                
+                <div className="space-y-6">
+                  <div>
+                    <label className="block text-slate-300 mb-2">Number of Employees</label>
+                    <input
+                      type="range"
+                      min="100"
+                      max="10000"
+                      step="100"
+                      value={roiInputs.employees}
+                      onChange={(e) => setROIInputs({...roiInputs, employees: parseInt(e.target.value)})}
+                      className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+                    />
+                    <div className="text-blue-400 font-semibold text-lg mt-1">{roiInputs.employees.toLocaleString()} employees</div>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-slate-300 mb-2">Meetings per Week</label>
+                    <input
+                      type="range"
+                      min="5"
+                      max="100"
+                      step="5"
+                      value={roiInputs.meetingsPerWeek}
+                      onChange={(e) => setROIInputs({...roiInputs, meetingsPerWeek: parseInt(e.target.value)})}
+                      className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+                    />
+                    <div className="text-cyan-400 font-semibold text-lg mt-1">{roiInputs.meetingsPerWeek} meetings/week</div>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-slate-300 mb-2">Average Meeting Duration (minutes)</label>
+                    <input
+                      type="range"
+                      min="30"
+                      max="120"
+                      step="15"
+                      value={roiInputs.avgMeetingDuration}
+                      onChange={(e) => setROIInputs({...roiInputs, avgMeetingDuration: parseInt(e.target.value)})}
+                      className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+                    />
+                    <div className="text-green-400 font-semibold text-lg mt-1">{roiInputs.avgMeetingDuration} minutes</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="text-xl font-semibold text-white mb-6">ROI Analysis</h4>
+                
+                <div className="space-y-4">
+                  <div className="bg-red-900/30 rounded-lg p-4 border border-red-500/30">
+                    <div className="text-red-400 font-semibold">Current Annual Cost (Meeting Inefficiency)</div>
+                    <div className="text-2xl font-bold text-white">${roiResults.currentAnnualCost}</div>
+                  </div>
+                  
+                  <div className="bg-green-900/30 rounded-lg p-4 border border-green-500/30">
+                    <div className="text-green-400 font-semibold">Annual Savings with VoiceAgent AI</div>
+                    <div className="text-2xl font-bold text-white">${roiResults.annualSavings}</div>
+                  </div>
+                  
+                  <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-500/30">
+                    <div className="text-blue-400 font-semibold">VoiceAgent AI Annual Cost</div>
+                    <div className="text-2xl font-bold text-white">${roiResults.voiceAgentCost}</div>
+                  </div>
+                  
+                  <div className="bg-yellow-900/30 rounded-lg p-4 border border-yellow-500/30">
+                    <div className="text-yellow-400 font-semibold">Net Annual Benefit</div>
+                    <div className="text-2xl font-bold text-white">${roiResults.netBenefit}</div>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-purple-900/30 rounded-lg p-4 border border-purple-500/30 text-center">
+                      <div className="text-purple-400 font-semibold">ROI</div>
+                      <div className="text-2xl font-bold text-white">{roiResults.roi}%</div>
+                    </div>
+                    
+                    <div className="bg-cyan-900/30 rounded-lg p-4 border border-cyan-500/30 text-center">
+                      <div className="text-cyan-400 font-semibold">Payback</div>
+                      <div className="text-2xl font-bold text-white">{roiResults.paybackMonths}mo</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-8 text-center">
+              <div className="text-slate-400 text-sm">
+                Calculation based on 35% meeting inefficiency reduction and average enterprise salary of $75,000
+              </div>
+            </div>
           </div>
 
           {/* Market Size */}
