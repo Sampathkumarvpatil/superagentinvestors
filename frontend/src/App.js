@@ -1591,6 +1591,7 @@ const BusinessPage = () => {
             <p className="text-xl text-slate-300">Strategic pricing to capture value across market segments</p>
           </div>
 
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             {pricingTiers.map((tier) => (
               <div 
                 key={tier.id}
