@@ -1710,7 +1710,41 @@ const BusinessPage = () => {
             </div>
           </div>
 
-
+          {/* Customer Success Stories */}
+          <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50">
+            <h3 className="text-2xl font-bold text-white mb-8 text-center">🎯 Customer Success Stories</h3>
+            
+            <div className="relative">
+              <div className="bg-slate-700/50 rounded-xl p-8">
+                <div className="flex items-start space-x-6">
+                  <div className="text-4xl">{testimonials[currentTestimonial].avatar}</div>
+                  <div className="flex-1">
+                    <div className="mb-4">
+                      <div className="text-xl font-semibold text-white">{testimonials[currentTestimonial].name}</div>
+                      <div className="text-blue-400">{testimonials[currentTestimonial].role}, {testimonials[currentTestimonial].company}</div>
+                    </div>
+                    <p className="text-slate-300 text-lg italic mb-4">"{testimonials[currentTestimonial].content}"</p>
+                    <div className="bg-green-900/30 rounded-lg p-3 inline-block">
+                      <div className="text-green-400 font-semibold">Result: {testimonials[currentTestimonial].metrics}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Testimonial indicators */}
+              <div className="flex justify-center mt-6 space-x-2">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonial(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentTestimonial ? 'bg-blue-400' : 'bg-slate-600'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
