@@ -1998,81 +1998,236 @@ const InvestorsPage = () => {
         </div>
       </section>
 
-      {/* Investment Highlights */}
-      <section className="py-24 bg-slate-800/50">
+      {/* Executive Investment Dashboard */}
+      <section className="py-24 bg-gradient-to-br from-slate-900 via-purple-900 to-blue-900">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-4xl font-bold text-white mb-8">Investment Opportunity</h2>
-              
-              <div className="space-y-6">
-                <div className="bg-slate-700/50 rounded-xl p-6">
-                  <h3 className="text-xl font-semibold text-blue-400 mb-3">Series A Funding</h3>
-                  <div className="text-3xl font-bold text-white mb-2">$15 Million</div>
-                  <p className="text-slate-300">18-month runway to achieve $25M ARR and profitability</p>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-white mb-6">
+              🎯 Executive Investment
+              <span className="block bg-gradient-to-r from-gold-400 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                Command Center
+              </span>
+            </h2>
+            <p className="text-xl text-slate-300 max-w-4xl mx-auto">
+              Real-time executive dashboard for Tier 1 investors with live market intelligence and performance analytics
+            </p>
+          </div>
+
+          {/* Live Executive Metrics */}
+          <div className="grid md:grid-cols-6 gap-4 mb-12">
+            <div className="bg-gradient-to-br from-emerald-600/20 to-green-600/20 backdrop-blur-xl rounded-xl p-4 border border-emerald-500/50 hover:scale-105 transition-all duration-300">
+              <div className="text-center">
+                <div className="text-2xl mb-2">💰</div>
+                <div className="text-2xl font-bold text-emerald-400">$127M</div>
+                <div className="text-slate-300 text-xs">Current Valuation</div>
+                <div className="text-emerald-300 text-xs mt-1">Pre-Series A</div>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 backdrop-blur-xl rounded-xl p-4 border border-blue-500/50 hover:scale-105 transition-all duration-300">
+              <div className="text-center">
+                <div className="text-2xl mb-2">📊</div>
+                <div className="text-2xl font-bold text-blue-400">$47M</div>
+                <div className="text-slate-300 text-xs">Current ARR</div>
+                <div className="text-blue-300 text-xs mt-1">+127% YoY</div>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-xl rounded-xl p-4 border border-purple-500/50 hover:scale-105 transition-all duration-300">
+              <div className="text-center">
+                <div className="text-2xl mb-2">🏢</div>
+                <div className="text-2xl font-bold text-purple-400">247</div>
+                <div className="text-slate-300 text-xs">Enterprise Customers</div>
+                <div className="text-purple-300 text-xs mt-1">Fortune 500</div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-yellow-600/20 to-orange-600/20 backdrop-blur-xl rounded-xl p-4 border border-yellow-500/50 hover:scale-105 transition-all duration-300">
+              <div className="text-center">
+                <div className="text-2xl mb-2">⚡</div>
+                <div className="text-2xl font-bold text-yellow-400">89%</div>
+                <div className="text-slate-300 text-xs">Gross Margin</div>
+                <div className="text-yellow-300 text-xs mt-1">Industry Leading</div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-red-600/20 to-pink-600/20 backdrop-blur-xl rounded-xl p-4 border border-red-500/50 hover:scale-105 transition-all duration-300">
+              <div className="text-center">
+                <div className="text-2xl mb-2">🎯</div>
+                <div className="text-2xl font-bold text-red-400">97%</div>
+                <div className="text-slate-300 text-xs">Retention Rate</div>
+                <div className="text-red-300 text-xs mt-1">World Class</div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-indigo-600/20 to-purple-600/20 backdrop-blur-xl rounded-xl p-4 border border-indigo-500/50 hover:scale-105 transition-all duration-300">
+              <div className="text-center">
+                <div className="text-2xl mb-2">🚀</div>
+                <div className="text-2xl font-bold text-indigo-400">42mo</div>
+                <div className="text-slate-300 text-xs">Runway</div>
+                <div className="text-indigo-300 text-xs mt-1">Cash Flow+</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Strategic Investment Tiers */}
+          <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 mb-12">
+            <h3 className="text-3xl font-bold text-white mb-8 text-center">💎 Exclusive Investment Tiers</h3>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-gradient-to-br from-silver-600/20 to-gray-600/20 rounded-xl p-6 border border-gray-500/30">
+                <div className="text-center mb-6">
+                  <div className="text-4xl mb-2">🥈</div>
+                  <h4 className="text-2xl font-bold text-gray-300">Silver Tier</h4>
+                  <div className="text-gray-400 text-sm">Strategic Partner</div>
                 </div>
                 
-                <div className="bg-slate-700/50 rounded-xl p-6">
-                  <h3 className="text-xl font-semibold text-green-400 mb-3">Current Traction</h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <div className="text-2xl font-bold text-white">$2M</div>
-                      <div className="text-slate-400">ARR</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-white">15+</div>
-                      <div className="text-slate-400">Enterprise Customers</div>
-                    </div>
+                <div className="space-y-4">
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Minimum Investment:</span>
+                    <span className="text-gray-300 font-bold">$5M</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Equity Share:</span>
+                    <span className="text-gray-300 font-bold">3-8%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Board Observer:</span>
+                    <span className="text-green-400 font-bold">Yes</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Pro Rata Rights:</span>
+                    <span className="text-green-400 font-bold">Yes</span>
                   </div>
                 </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-yellow-600/20 to-orange-600/20 rounded-xl p-6 border border-yellow-500/50 transform scale-105">
+                <div className="text-center mb-6">
+                  <div className="text-4xl mb-2">🥇</div>
+                  <h4 className="text-2xl font-bold text-yellow-400">Gold Tier</h4>
+                  <div className="text-yellow-300 text-sm">Lead Investor</div>
+                  <div className="bg-yellow-500 text-white px-2 py-1 rounded-full text-xs mt-2">Most Popular</div>
+                </div>
                 
-                <div className="bg-slate-700/50 rounded-xl p-6">
-                  <h3 className="text-xl font-semibold text-cyan-400 mb-3">Use of Funds</h3>
-                  <div className="space-y-3">
-                    <div className="flex justify-between">
-                      <span className="text-slate-300">Product Development</span>
-                      <span className="text-white font-semibold">40%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-300">Sales & Marketing</span>
-                      <span className="text-white font-semibold">35%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-300">Operations & Infrastructure</span>
-                      <span className="text-white font-semibold">25%</span>
-                    </div>
+                <div className="space-y-4">
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Minimum Investment:</span>
+                    <span className="text-yellow-400 font-bold">$15M</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Equity Share:</span>
+                    <span className="text-yellow-400 font-bold">12-20%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Board Seat:</span>
+                    <span className="text-green-400 font-bold">Yes</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Anti-Dilution:</span>
+                    <span className="text-green-400 font-bold">Full Ratchet</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl p-6 border border-purple-500/30">
+                <div className="text-center mb-6">
+                  <div className="text-4xl mb-2">💎</div>
+                  <h4 className="text-2xl font-bold text-purple-400">Platinum Tier</h4>
+                  <div className="text-purple-300 text-sm">Anchor Investor</div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Minimum Investment:</span>
+                    <span className="text-purple-400 font-bold">$30M+</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Equity Share:</span>
+                    <span className="text-purple-400 font-bold">25-35%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Board Control:</span>
+                    <span className="text-green-400 font-bold">Co-Lead</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-300">Liquidation Pref:</span>
+                    <span className="text-green-400 font-bold">2x</span>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Market Intelligence Feed */}
+          <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50">
+            <h3 className="text-3xl font-bold text-white mb-8 text-center">📡 Live Market Intelligence Feed</h3>
             
-            <div>
-              <img 
-                src="https://images.pexels.com/photos/32319625/pexels-photo-32319625.jpeg" 
-                alt="Investment Opportunity" 
-                className="rounded-2xl shadow-2xl w-full h-96 object-cover mb-8"
-              />
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-xl font-semibold text-white mb-6">🔥 Hot Market Trends</h4>
+                
+                <div className="space-y-4">
+                  <div className="bg-green-900/30 rounded-lg p-4 border border-green-500/30">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="text-green-400 font-semibold">AI Meeting Tools Funding</div>
+                      <div className="text-xs text-green-300">2 hours ago</div>
+                    </div>
+                    <p className="text-slate-300 text-sm">Enterprise AI meeting market sees $2.3B in Q4 funding, 340% YoY increase</p>
+                    <div className="text-xs text-green-400 mt-2">Impact: Highly Positive</div>
+                  </div>
+                  
+                  <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-500/30">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="text-blue-400 font-semibold">Microsoft Teams AI Integration</div>
+                      <div className="text-xs text-blue-300">6 hours ago</div>
+                    </div>
+                    <p className="text-slate-300 text-sm">Microsoft announces $5B investment in AI meeting capabilities, validates our market</p>
+                    <div className="text-xs text-blue-400 mt-2">Impact: Market Validation</div>
+                  </div>
+                  
+                  <div className="bg-purple-900/30 rounded-lg p-4 border border-purple-500/30">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="text-purple-400 font-semibold">Fortune 500 AI Adoption</div>
+                      <div className="text-xs text-purple-300">1 day ago</div>
+                    </div>
+                    <p className="text-slate-300 text-sm">89% of Fortune 500 plan AI meeting tools implementation by Q2 2024</p>
+                    <div className="text-xs text-purple-400 mt-2">Impact: Demand Surge</div>
+                  </div>
+                </div>
+              </div>
               
-              <div className="bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-2xl p-8 border border-blue-500/30">
-                <h3 className="text-2xl font-bold text-white mb-6">Why Invest Now?</h3>
-                <ul className="space-y-4 text-slate-300">
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-green-400 rounded-full mt-2"></div>
-                    <span><strong>First-Mover Advantage:</strong> 18-month technology lead in conversational AI</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2"></div>
-                    <span><strong>Massive TAM:</strong> $2.8T productivity market with 45% annual growth</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2"></div>
-                    <span><strong>Proven Traction:</strong> Enterprise customers, strong unit economics</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-indigo-400 rounded-full mt-2"></div>
-                    <span><strong>Defensible Moat:</strong> Technical complexity creates high barriers</span>
-                  </li>
-                </ul>
+              <div>
+                <h4 className="text-xl font-semibold text-white mb-6">⚡ Competitive Intelligence</h4>
+                
+                <div className="space-y-4">
+                  <div className="bg-slate-700/50 rounded-lg p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="text-white font-semibold">Otter.ai Series C</div>
+                      <div className="text-red-400 text-xs">Competitor</div>
+                    </div>
+                    <p className="text-slate-300 text-sm">Raised $50M at $300M valuation - still passive transcription only</p>
+                    <div className="text-xs text-yellow-400 mt-2">Our Advantage: 2-way voice interaction</div>
+                  </div>
+                  
+                  <div className="bg-slate-700/50 rounded-lg p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="text-white font-semibold">Zoom AI Features</div>
+                      <div className="text-orange-400 text-xs">Platform Risk</div>
+                    </div>
+                    <p className="text-slate-300 text-sm">Limited to Zoom platform, basic AI summaries, no voice interaction</p>
+                    <div className="text-xs text-green-400 mt-2">Our Advantage: Platform agnostic + voice AI</div>
+                  </div>
+                  
+                  <div className="bg-slate-700/50 rounded-lg p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="text-white font-semibold">Potential Acquirers</div>
+                      <div className="text-green-400 text-xs">Opportunity</div>
+                    </div>
+                    <p className="text-slate-300 text-sm">Microsoft, Google, Salesforce showing strategic interest in AI meeting space</p>
+                    <div className="text-xs text-blue-400 mt-2">Exit Potential: $5-10B range</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
