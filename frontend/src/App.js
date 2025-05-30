@@ -874,59 +874,7 @@ const BusinessPage = () => {
             </div>
           </div>
 
-          {/* Revenue Projections */}
-          <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">5-Year Revenue Projection</h3>
-            
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-slate-700/50">
-                    <th className="text-left p-4 text-white">Metric</th>
-                    <th className="text-center p-4 text-slate-300">Year 1</th>
-                    <th className="text-center p-4 text-slate-300">Year 2</th>
-                    <th className="text-center p-4 text-slate-300">Year 3</th>
-                    <th className="text-center p-4 text-slate-300">Year 4</th>
-                    <th className="text-center p-4 text-slate-300">Year 5</th>
-                  </tr>
-                </thead>
-                <tbody className="text-slate-300">
-                  <tr className="border-b border-slate-700/30">
-                    <td className="p-4 font-semibold">Total Users</td>
-                    <td className="text-center p-4">2,500</td>
-                    <td className="text-center p-4">12,000</td>
-                    <td className="text-center p-4">35,000</td>
-                    <td className="text-center p-4">80,000</td>
-                    <td className="text-center p-4">150,000</td>
-                  </tr>
-                  <tr className="border-b border-slate-700/30">
-                    <td className="p-4 font-semibold">Annual Revenue</td>
-                    <td className="text-center p-4 text-green-400">$2M</td>
-                    <td className="text-center p-4 text-green-400">$12M</td>
-                    <td className="text-center p-4 text-green-400">$35M</td>
-                    <td className="text-center p-4 text-green-400">$85M</td>
-                    <td className="text-center p-4 text-green-400">$165M</td>
-                  </tr>
-                  <tr className="border-b border-slate-700/30">
-                    <td className="p-4 font-semibold">Gross Margin</td>
-                    <td className="text-center p-4">75%</td>
-                    <td className="text-center p-4">82%</td>
-                    <td className="text-center p-4">85%</td>
-                    <td className="text-center p-4">87%</td>
-                    <td className="text-center p-4">88%</td>
-                  </tr>
-                  <tr>
-                    <td className="p-4 font-semibold">Enterprise Customers</td>
-                    <td className="text-center p-4">15</td>
-                    <td className="text-center p-4">75</td>
-                    <td className="text-center p-4">200</td>
-                    <td className="text-center p-4">450</td>
-                    <td className="text-center p-4">800</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+
         </div>
       </section>
 
