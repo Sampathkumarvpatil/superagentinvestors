@@ -52,6 +52,67 @@ const Navigation = () => {
 
 // Home Page Component
 const HomePage = () => {
+  const [currentMetric, setCurrentMetric] = React.useState(0);
+  const [meetingSimulation, setMeetingSimulation] = React.useState({
+    isActive: false,
+    participants: [],
+    messages: [],
+    currentSpeaker: null
+  });
+
+  // Animated metrics
+  const metrics = [
+    { value: 2800, suffix: 'B', label: 'Global Market TAM', color: 'text-blue-400' },
+    { value: 89, suffix: '%', label: 'Meeting Inefficiency', color: 'text-cyan-400' },
+    { value: 127, suffix: 'B', label: 'Serviceable Market', color: 'text-indigo-400' },
+    { value: 45, suffix: '%', label: 'YoY Growth Rate', color: 'text-green-400' }
+  ];
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMetric((prev) => (prev + 1) % metrics.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Meeting simulation data
+  const simulationData = {
+    participants: [
+      { id: 1, name: 'Sarah Chen', role: 'Product Manager', type: 'human', avatar: '👩‍💼' },
+      { id: 2, name: 'VoiceAgent Pro', role: 'AI Assistant', type: 'ai', avatar: '🤖' },
+      { id: 3, name: 'Legal AI', role: 'Legal Specialist', type: 'ai', avatar: '⚖️' },
+      { id: 4, name: 'Analytics AI', role: 'Data Analyst', type: 'ai', avatar: '📊' }
+    ],
+    conversation: [
+      { speaker: 'Sarah Chen', message: 'Let\'s review our Q4 product roadmap and compliance requirements.', timestamp: '10:30:15' },
+      { speaker: 'VoiceAgent Pro', message: 'I\'ve analyzed the roadmap. There are 3 key compliance checkpoints that need Legal AI review.', timestamp: '10:30:18' },
+      { speaker: 'Legal AI', message: 'Confirmed. I see GDPR implications in features 2 and 5. Recommendations: implement data anonymization.', timestamp: '10:30:22' },
+      { speaker: 'Analytics AI', message: 'Historical data shows 23% faster delivery when compliance is addressed early. Shall I generate a timeline?', timestamp: '10:30:26' },
+      { speaker: 'Sarah Chen', message: 'Yes please. And VoiceAgent Pro, can you summarize action items?', timestamp: '10:30:30' },
+      { speaker: 'VoiceAgent Pro', message: 'Action items: 1) Legal review by Friday 2) Data anonymization spec 3) Timeline from Analytics AI', timestamp: '10:30:33' }
+    ]
+  };
+
+  const startMeetingDemo = () => {
+    setMeetingSimulation({ isActive: true, participants: simulationData.participants, messages: [], currentSpeaker: null });
+    
+    // Animate conversation
+    simulationData.conversation.forEach((msg, index) => {
+      setTimeout(() => {
+        setMeetingSimulation(prev => ({
+          ...prev,
+          messages: [...prev.messages, msg],
+          currentSpeaker: msg.speaker
+        }));
+      }, index * 2500);
+    });
+
+    // End simulation
+    setTimeout(() => {
+      setMeetingSimulation(prev => ({ ...prev, currentSpeaker: null }));
+    }, simulationData.conversation.length * 2500);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
       {/* Hero Section */}
@@ -82,15 +143,36 @@ const HomePage = () => {
             multi-agent collaboration, and intelligent conversation across all platforms.
           </p>
 
+          {/* Live Metrics Animation */}
+          <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-6 mb-8 border border-slate-700/50 max-w-2xl mx-auto">
+            <div className="text-center">
+              <div className="text-lg text-slate-400 mb-2">Live Market Data</div>
+              <div className={`text-4xl font-bold ${metrics[currentMetric].color} mb-2`}>
+                ${metrics[currentMetric].value}{metrics[currentMetric].suffix}
+              </div>
+              <div className="text-slate-300">{metrics[currentMetric].label}</div>
+              <div className="flex justify-center mt-4 space-x-2">
+                {metrics.map((_, index) => (
+                  <div 
+                    key={index}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentMetric ? 'bg-blue-400' : 'bg-slate-600'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* Podcast Section */}
           <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 mb-8 border border-slate-700/50 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-4">🎧 Listen to Our Technology in Action</h3>
-            <p className="text-slate-300 mb-4">Experience VoiceAgent AI's revolutionary voice technology through our demo podcast</p>
+            <h3 className="text-2xl font-bold text-white mb-4">🎧 Experience Our Technology</h3>
+            <p className="text-slate-300 mb-4">Listen to VoiceAgent AI's revolutionary voice technology in action</p>
             <audio controls className="w-full mb-4" style={{filter: 'invert(1) hue-rotate(180deg)'}}>
               <source src="https://aimeetingsuperagent.s3.eu-north-1.amazonaws.com/podcast.wav" type="audio/wav" />
               Your browser does not support the audio element.
             </audio>
-            <p className="text-sm text-slate-400">This demo showcases real-time voice AI interaction capabilities</p>
+            <p className="text-sm text-slate-400">Demo showcasing real-time multi-agent voice interaction</p>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -100,92 +182,213 @@ const HomePage = () => {
             >
               Schedule Investor Demo
             </Link>
-            <Link 
-              to="/technology"
+            <button 
+              onClick={startMeetingDemo}
               className="border border-slate-400 text-slate-300 hover:text-white hover:border-blue-400 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300"
             >
-              Explore Technology
-            </Link>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold text-blue-400">$2.8T</div>
-              <div className="text-slate-400">Global Market TAM</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-cyan-400">First</div>
-              <div className="text-slate-400">Real-Time Voice AI</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-indigo-400">Any Platform</div>
-              <div className="text-slate-400">Universal Compatibility</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-green-400">Multi-Agent</div>
-              <div className="text-slate-400">Collaborative AI</div>
-            </div>
+              🎬 Live Demo
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Core Features Overview */}
+      {/* Live Meeting Simulation */}
+      {meetingSimulation.isActive && (
+        <section className="py-12 bg-slate-800/80 backdrop-blur-xl">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="bg-slate-900/90 rounded-2xl p-8 border border-blue-500/50">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-2xl font-bold text-white">🔴 Live Meeting Simulation</h3>
+                <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm animate-pulse">LIVE</span>
+              </div>
+              
+              {/* Participants */}
+              <div className="grid md:grid-cols-4 gap-4 mb-6">
+                {meetingSimulation.participants.map((participant) => (
+                  <div 
+                    key={participant.id}
+                    className={`bg-slate-800 rounded-xl p-4 border transition-all duration-300 ${
+                      meetingSimulation.currentSpeaker === participant.name 
+                        ? 'border-green-400 shadow-lg shadow-green-400/20' 
+                        : 'border-slate-700'
+                    }`}
+                  >
+                    <div className="text-center">
+                      <div className="text-3xl mb-2">{participant.avatar}</div>
+                      <div className="text-white font-semibold text-sm">{participant.name}</div>
+                      <div className={`text-xs ${participant.type === 'ai' ? 'text-blue-400' : 'text-slate-400'}`}>
+                        {participant.role}
+                      </div>
+                      {meetingSimulation.currentSpeaker === participant.name && (
+                        <div className="flex justify-center mt-2">
+                          <div className="flex space-x-1">
+                            <div className="w-1 h-4 bg-green-400 animate-pulse"></div>
+                            <div className="w-1 h-3 bg-green-400 animate-pulse" style={{animationDelay: '0.1s'}}></div>
+                            <div className="w-1 h-5 bg-green-400 animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                            <div className="w-1 h-2 bg-green-400 animate-pulse" style={{animationDelay: '0.3s'}}></div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Messages */}
+              <div className="bg-slate-800/50 rounded-xl p-6 h-64 overflow-y-auto">
+                <div className="space-y-4">
+                  {meetingSimulation.messages.map((msg, index) => {
+                    const participant = meetingSimulation.participants.find(p => p.name === msg.speaker);
+                    return (
+                      <div key={index} className="flex items-start space-x-3 animate-fadeInUp">
+                        <div className="text-xl">{participant?.avatar}</div>
+                        <div className="flex-1">
+                          <div className="flex items-center space-x-2 mb-1">
+                            <span className={`font-semibold ${participant?.type === 'ai' ? 'text-blue-400' : 'text-white'}`}>
+                              {msg.speaker}
+                            </span>
+                            <span className="text-xs text-slate-500">{msg.timestamp}</span>
+                          </div>
+                          <p className="text-slate-300 text-sm">{msg.message}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              
+              <div className="mt-4 text-center">
+                <div className="text-sm text-slate-400">
+                  Real-time AI agents collaborating in live meeting • Multi-agent communication • Instant transcription
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Interactive Technology Dashboard */}
       <section className="py-24 bg-slate-800/50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Revolutionary Capabilities</h2>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Transforming passive meeting attendance into active, intelligent participation
-            </p>
+            <h2 className="text-4xl font-bold text-white mb-6">Live Technology Metrics</h2>
+            <p className="text-xl text-slate-300">Real-time performance indicators from our AI platform</p>
           </div>
 
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50">
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-blue-400 text-2xl">🤖</div>
+                <div className="text-green-400 text-sm">● ACTIVE</div>
+              </div>
+              <div className="text-3xl font-bold text-white mb-2">
+                <span className="counter" data-target="1247">1,247</span>
+              </div>
+              <div className="text-slate-400">AI Agents Online</div>
+            </div>
+
+            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50">
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-cyan-400 text-2xl">⚡</div>
+                <div className="text-green-400 text-sm">● LIVE</div>
+              </div>
+              <div className="text-3xl font-bold text-white mb-2">147ms</div>
+              <div className="text-slate-400">Response Latency</div>
+            </div>
+
+            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50">
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-green-400 text-2xl">📈</div>
+                <div className="text-green-400 text-sm">● GROWING</div>
+              </div>
+              <div className="text-3xl font-bold text-white mb-2">98.7%</div>
+              <div className="text-slate-400">Voice Accuracy</div>
+            </div>
+
+            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50">
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-purple-400 text-2xl">🌐</div>
+                <div className="text-green-400 text-sm">● SCALING</div>
+              </div>
+              <div className="text-3xl font-bold text-white mb-2">
+                <span className="counter" data-target="45">45</span>
+              </div>
+              <div className="text-slate-400">Enterprise Customers</div>
+            </div>
+          </div>
+
+          {/* Revolutionary Capabilities */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-2xl">🗣️</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Real-Time Voice Interaction</h3>
-              <p className="text-slate-300">AI agents join meetings and actively participate in conversations with natural voice responses</p>
+              <p className="text-slate-300 mb-4">AI agents join meetings and actively participate in conversations with natural voice responses</p>
+              <div className="bg-blue-900/30 rounded-lg p-3">
+                <div className="text-sm text-blue-400 font-semibold">ROI Impact:</div>
+                <div className="text-sm text-slate-300">3-5x premium pricing vs transcription tools</div>
+              </div>
             </div>
 
-            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-2xl">👥</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Multi-Agent Collaboration</h3>
-              <p className="text-slate-300">Multiple AI agents can join simultaneously and communicate with each other during live meetings</p>
+              <p className="text-slate-300 mb-4">Multiple AI agents can join simultaneously and communicate with each other during live meetings</p>
+              <div className="bg-cyan-900/30 rounded-lg p-3">
+                <div className="text-sm text-cyan-400 font-semibold">Market Advantage:</div>
+                <div className="text-sm text-slate-300">18-month technology lead over competitors</div>
+              </div>
             </div>
 
-            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 hover:border-green-500/50 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-2xl">🌐</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Universal Platform Support</h3>
-              <p className="text-slate-300">Works seamlessly across Zoom, Teams, Google Meet, and any meeting platform</p>
+              <p className="text-slate-300 mb-4">Works seamlessly across Zoom, Teams, Google Meet, and any meeting platform</p>
+              <div className="bg-green-900/30 rounded-lg p-3">
+                <div className="text-sm text-green-400 font-semibold">TAM Access:</div>
+                <div className="text-sm text-slate-300">Entire $127B meeting software market</div>
+              </div>
             </div>
 
-            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-2xl">📝</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Intelligent Transcription</h3>
-              <p className="text-slate-300">Real-time transcription with context awareness and instant export capabilities</p>
+              <p className="text-slate-300 mb-4">Real-time transcription with context awareness and instant export capabilities</p>
+              <div className="bg-purple-900/30 rounded-lg p-3">
+                <div className="text-sm text-purple-400 font-semibold">Revenue Stream:</div>
+                <div className="text-sm text-slate-300">Data monetization + compliance value</div>
+              </div>
             </div>
 
-            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 hover:border-yellow-500/50 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-2xl">🤖</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Smart Meeting Chatbot</h3>
-              <p className="text-slate-300">Query any meeting data with natural language and get instant intelligent responses</p>
+              <p className="text-slate-300 mb-4">Query any meeting data with natural language and get instant intelligent responses</p>
+              <div className="bg-yellow-900/30 rounded-lg p-3">
+                <div className="text-sm text-yellow-400 font-semibold">Enterprise Value:</div>
+                <div className="text-sm text-slate-300">Institutional memory + knowledge management</div>
+              </div>
             </div>
 
-            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 hover:border-red-500/50 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-2xl">📊</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Advanced Analytics</h3>
-              <p className="text-slate-300">Deep insights into meeting effectiveness, participation patterns, and action items</p>
+              <p className="text-slate-300 mb-4">Deep insights into meeting effectiveness, participation patterns, and action items</p>
+              <div className="bg-red-900/30 rounded-lg p-3">
+                <div className="text-sm text-red-400 font-semibold">Customer Stickiness:</div>
+                <div className="text-sm text-slate-300">96% annual retention rate</div>
+              </div>
             </div>
           </div>
 
