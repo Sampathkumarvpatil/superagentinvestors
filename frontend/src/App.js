@@ -1688,28 +1688,30 @@ const InvestorsPage = () => {
                 <div className="space-y-4">
                   <div className="bg-slate-700/50 rounded-lg p-4">
                     <div className="flex items-center justify-between mb-2">
-                      <div className="text-white font-semibold">Otter.ai Series C</div>
+                      <div className="text-white font-semibold">Otter.ai Funding Status</div>
                       <div className="text-red-400 text-xs">Competitor</div>
                     </div>
-                    <p className="text-slate-300 text-sm">Raised $50M at $300M valuation - still passive transcription only</p>
+                    <p className="text-slate-300 text-sm">Largest funding was $50M Series B in February 2021. No public record of Series C round or $300M valuation. Continues to focus on AI-powered transcription services.</p>
                     <div className="text-xs text-yellow-400 mt-2">Our Advantage: 2-way voice interaction</div>
+                    <div className="text-xs text-slate-400 mt-1">Sources: PitchBook +1, Tracxn +1</div>
                   </div>
                   
                   <div className="bg-slate-700/50 rounded-lg p-4">
                     <div className="flex items-center justify-between mb-2">
-                      <div className="text-white font-semibold">Zoom AI Features</div>
-                      <div className="text-orange-400 text-xs">Platform Risk</div>
+                      <div className="text-white font-semibold">Zoom Enhanced AI Features</div>
+                      <div className="text-orange-400 text-xs">Platform Evolution</div>
                     </div>
-                    <p className="text-slate-300 text-sm">Limited to Zoom platform, basic AI summaries, no voice interaction</p>
+                    <p className="text-slate-300 text-sm">Zoom expanded AI capabilities with agentic AI features for scheduling, document generation, and video clips. Added voice recorder for mobile with transcription and summarization for in-person meetings.</p>
                     <div className="text-xs text-green-400 mt-2">Our Advantage: Platform agnostic + voice AI</div>
+                    <div className="text-xs text-slate-400 mt-1">Sources: Zoom, ETCIO.com</div>
                   </div>
                   
                   <div className="bg-slate-700/50 rounded-lg p-4">
                     <div className="flex items-center justify-between mb-2">
-                      <div className="text-white font-semibold">Potential Acquirers</div>
+                      <div className="text-white font-semibold">Strategic Acquisition Activity</div>
                       <div className="text-green-400 text-xs">Opportunity</div>
                     </div>
-                    <p className="text-slate-300 text-sm">Microsoft, Google, Salesforce showing strategic interest in AI meeting space</p>
+                    <p className="text-slate-300 text-sm">Salesforce announced $8B acquisition of Informatica to bolster AI capabilities. Google and Salesforce entered $2.5B deal to integrate Gemini AI into Agentforce platform. Microsoft continues heavy AI investment with OpenAI partnerships and autonomous AI agents.</p>
                     <div className="text-xs text-blue-400 mt-2">Exit Potential: $5-10B range</div>
                   </div>
                 </div>
