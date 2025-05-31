@@ -410,7 +410,7 @@ const TechnologyPage = () => {
       title: 'Real-Time Voice AI', 
       icon: '🗣️',
       description: 'Experience natural conversation with AI agents',
-      metrics: { latency: '147ms', accuracy: '98.7%', languages: '12' }
+      metrics: { latency: '147ms', accuracy: '98.7%'}
     },
     { 
       id: 'multi-agent', 
