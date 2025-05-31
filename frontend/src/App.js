@@ -282,7 +282,7 @@ const HomePage = () => {
                 <div className="text-green-400 text-sm">● ACTIVE</div>
               </div>
               <div className="text-3xl font-bold text-white mb-2">
-                <span className="counter" data-target="1247">1,247</span>
+                <span className="counter" data-target="1247">3</span>
               </div>
               <div className="text-slate-400">AI Agents Online</div>
             </div>
@@ -303,17 +303,6 @@ const HomePage = () => {
               </div>
               <div className="text-3xl font-bold text-white mb-2">98.7%</div>
               <div className="text-slate-400">Voice Accuracy</div>
-            </div>
-
-            <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50">
-              <div className="flex items-center justify-between mb-4">
-                <div className="text-purple-400 text-2xl">🌐</div>
-                <div className="text-green-400 text-sm">● SCALING</div>
-              </div>
-              <div className="text-3xl font-bold text-white mb-2">
-                <span className="counter" data-target="45">45</span>
-              </div>
-              <div className="text-slate-400">Enterprise Customers</div>
             </div>
           </div>
 
