@@ -1484,13 +1484,7 @@ const BusinessPage = () => {
                     <div className="text-slate-300">Voice Recognition Target</div>
                     <div className="text-yellow-400 text-sm mt-1">Human-level Performance</div>
                   </div>
-                  
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-slate-700/50 rounded-lg p-4 text-center">
-                      <div className="text-2xl font-bold text-cyan-400">10+</div>
-                      <div className="text-slate-300 text-sm">Languages</div>
-                    </div>
-                    
+                                   
                     <div className="bg-slate-700/50 rounded-lg p-4 text-center">
                       <div className="text-2xl font-bold text-green-400">1M+</div>
                       <div className="text-slate-300 text-sm">Concurrent</div>
