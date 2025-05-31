@@ -1224,10 +1224,8 @@ const MarketPage = () => {
   );
 };
 
-// Business Model Page Component
 const BusinessPage = () => {
   const [selectedTier, setSelectedTier] = React.useState('enterprise');
-  const [customerCount, setCustomerCount] = React.useState(0);
   const [growthMetrics, setGrowthMetrics] = React.useState({
     arr: 0,
     customers: 0,
@@ -1245,19 +1243,19 @@ const BusinessPage = () => {
     const animateCounter = (key, target, duration = 2000) => {
       const start = 0;
       const startTime = Date.now();
-      
+
       const animate = () => {
         const elapsed = Date.now() - startTime;
         const progress = Math.min(elapsed / duration, 1);
         const value = Math.floor(start + (target - start) * progress);
-        
+
         setGrowthMetrics(prev => ({ ...prev, [key]: value }));
-        
+
         if (progress < 1) {
           requestAnimationFrame(animate);
         }
       };
-      
+
       animate();
     };
 
@@ -1314,7 +1312,6 @@ const BusinessPage = () => {
     }
   ];
 
-  // Customer testimonials
   const testimonials = [
     {
       id: 1,
@@ -1383,7 +1380,7 @@ const BusinessPage = () => {
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {pricingTiers.map((tier) => (
-              <div 
+              <div
                 key={tier.id}
                 className={`rounded-2xl p-8 border transition-all duration-300 cursor-pointer ${
                   selectedTier === tier.id
@@ -1397,16 +1394,19 @@ const BusinessPage = () => {
                     <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">Most Popular</span>
                   </div>
                 )}
-                
+
                 <h3 className="text-2xl font-bold text-white mb-4">{tier.name}</h3>
                 <div className="mb-6">
                   {typeof tier.price === 'number' ? (
-                    <div className="text-4xl font-bold text-blue-400">${tier.price}<span className="text-lg text-slate-400">/user/month</span></div>
+                    <div className="text-4xl font-bold text-blue-400">
+                      ${tier.price}
+                      <span className="text-lg text-slate-400">/user/month</span>
+                    </div>
                   ) : (
                     <div className="text-4xl font-bold text-green-400">{tier.price}</div>
                   )}
                 </div>
-                
+
                 <ul className="space-y-3 mb-8">
                   {tier.features.map((feature, index) => (
                     <li key={index} className="flex items-start space-x-3 text-slate-300">
@@ -1417,7 +1417,7 @@ const BusinessPage = () => {
                     </li>
                   ))}
                 </ul>
-                
+
                 <div className="bg-slate-800/50 rounded-xl p-4">
                   <div className="text-sm text-slate-400 mb-1">Target Market:</div>
                   <div className="text-sm text-slate-300">{tier.target}</div>
@@ -1429,12 +1429,13 @@ const BusinessPage = () => {
           {/* AI Innovation Roadmap */}
           <div className="bg-slate-800/70 backdrop-blur-xl rounded-2xl p-8 border border-slate-600/50">
             <h3 className="text-3xl font-bold text-white mb-8 text-center">🧠 AI Innovation Roadmap</h3>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h4 className="text-2xl font-semibold text-white mb-6">Next-Gen AI Capabilities</h4>
-                
+
                 <div className="space-y-4">
+                  {/* Emotional AI */}
                   <div className="bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-lg p-4 border border-blue-500/30">
                     <div className="flex items-center space-x-3 mb-2">
                       <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
@@ -1442,10 +1443,13 @@ const BusinessPage = () => {
                       </div>
                       <h5 className="text-lg font-bold text-blue-400">Emotional AI Integration</h5>
                     </div>
-                    <p className="text-slate-300 text-sm">AI agents that understand and respond to emotional context in meetings</p>
+                    <p className="text-slate-300 text-sm">
+                      AI agents that understand and respond to emotional context in meetings
+                    </p>
                     <div className="text-xs text-blue-300 mt-2">Q2 2024 • Patent Pending</div>
                   </div>
-                  
+
+                  {/* Predictive Analytics */}
                   <div className="bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg p-4 border border-green-500/30">
                     <div className="flex items-center space-x-3 mb-2">
                       <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
@@ -1453,10 +1457,13 @@ const BusinessPage = () => {
                       </div>
                       <h5 className="text-lg font-bold text-green-400">Predictive Analytics</h5>
                     </div>
-                    <p className="text-slate-300 text-sm">AI predicts meeting outcomes and suggests optimal strategies</p>
+                    <p className="text-slate-300 text-sm">
+                      AI predicts meeting outcomes and suggests optimal strategies
+                    </p>
                     <div className="text-xs text-green-300 mt-2">Q3 2024 • Research Phase</div>
                   </div>
-                  
+
+                  {/* Holographic Presence */}
                   <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg p-4 border border-purple-500/30">
                     <div className="flex items-center space-x-3 mb-2">
                       <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
@@ -1464,15 +1471,16 @@ const BusinessPage = () => {
                       </div>
                       <h5 className="text-lg font-bold text-purple-400">Holographic Presence</h5>
                     </div>
-                    <p className="text-slate-300 text-sm">3D AI avatars with realistic presence in virtual meetings</p>
+                    <p className="text-slate-300 text-sm">
+                      3D AI avatars with realistic presence in virtual meetings
+                    </p>
                     <div className="text-xs text-purple-300 mt-2">Q1 2025 • Prototype</div>
                   </div>
                 </div>
               </div>
-              
+
               <div>
                 <h4 className="text-2xl font-semibold text-white mb-6">Enterprise Platform Evolution</h4>
-                
                 <div className="space-y-6">
                   <div className="text-center">
                     <div className="w-32 h-32 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform duration-300">
@@ -1484,21 +1492,20 @@ const BusinessPage = () => {
                     <div className="text-slate-300">Voice Recognition Target</div>
                     <div className="text-yellow-400 text-sm mt-1">Human-level Performance</div>
                   </div>
-                                   
-                    <div className="bg-slate-700/50 rounded-lg p-4 text-center">
-                      <div className="text-2xl font-bold text-green-400">1M+</div>
-                      <div className="text-slate-300 text-sm">Concurrent</div>
-                    </div>
-                    
-                    <div className="bg-slate-700/50 rounded-lg p-4 text-center">
-                      <div className="text-2xl font-bold text-blue-400">&lt;50ms</div>
-                      <div className="text-slate-300 text-sm">Latency</div>
-                    </div>
-                    
-                    <div className="bg-slate-700/50 rounded-lg p-4 text-center">
-                      <div className="text-2xl font-bold text-purple-400">100%</div>
-                      <div className="text-slate-300 text-sm">Uptime</div>
-                    </div>
+
+                  <div className="bg-slate-700/50 rounded-lg p-4 text-center">
+                    <div className="text-2xl font-bold text-green-400">1M+</div>
+                    <div className="text-slate-300 text-sm">Concurrent</div>
+                  </div>
+
+                  <div className="bg-slate-700/50 rounded-lg p-4 text-center">
+                    <div className="text-2xl font-bold text-blue-400">{'<50ms'}</div>
+                    <div className="text-slate-300 text-sm">Latency</div>
+                  </div>
+
+                  <div className="bg-slate-700/50 rounded-lg p-4 text-center">
+                    <div className="text-2xl font-bold text-purple-400">100%</div>
+                    <div className="text-slate-300 text-sm">Uptime</div>
                   </div>
                 </div>
               </div>
