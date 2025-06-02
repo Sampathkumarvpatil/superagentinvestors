@@ -828,45 +828,120 @@ const TechnologyPage = () => {
 
 // Market Analysis Page Component
 const MarketPage = () => {
-  const [roiInputs, setROIInputs] = React.useState({
-    employees: 1000,
-    meetingsPerWeek: 20,
-    avgMeetingDuration: 60,
-    currentSolution: 'basic'
-  });
+  const [activeStage, setActiveStage] = React.useState(1);
   
-  const [roiResults, setROIResults] = React.useState({});
+  const stages = [
+    {
+      id: 1,
+      title: "Intelligent Agent Creation",
+      subtitle: "The foundation of personalized AI representation",
+      icon: "🤖",
+      color: "blue",
+      features: [
+        {
+          title: "Custom Agent Library",
+          description: "One-time creation of specialized agents (Executive, HR, Finance, etc.) with permanent storage",
+          details: "Simple configuration interface for department-specific knowledge and communication styles"
+        },
+        {
+          title: "Knowledge Integration Hub", 
+          description: "Seamless incorporation of proprietary company information, policies, and procedures",
+          details: "Direct upload of project documentation to create contextually-aware meeting participants"
+        }
+      ]
+    },
+    {
+      id: 2,
+      title: "Frictionless Meeting Deployment",
+      subtitle: "Eliminating the constraints of human availability",
+      icon: "⚡",
+      color: "cyan",
+      features: [
+        {
+          title: "On-Demand Meeting Participation",
+          description: "One-click deployment of any pre-configured agent to scheduled or ad-hoc meetings",
+          details: "Dynamic agent switching during meetings as conversation topics evolve"
+        },
+        {
+          title: "Active Voice Representation",
+          description: "Complete stand-in capability for daily standups with personalized voice and interaction style",
+          details: "Autonomous handling of routine client meetings for requirements gathering"
+        }
+      ]
+    },
+    {
+      id: 3,
+      title: "Advanced Conversation Intelligence",
+      subtitle: "Beyond passive transcription to active participation",
+      icon: "🧠",
+      color: "indigo",
+      features: [
+        {
+          title: "Structured Information Gathering",
+          description: "Proactive interview conduction with team members during check-ins and standups",
+          details: "Dynamic follow-up question generation to resolve ambiguities and unclear updates"
+        },
+        {
+          title: "Multi-Agent Meeting Ecosystem",
+          description: "Simultaneous deployment of specialized agents for cross-functional discussions",
+          details: "AI-to-AI coordination to resolve complex questions requiring multiple domains"
+        }
+      ]
+    },
+    {
+      id: 4,
+      title: "Enterprise Transformation",
+      subtitle: "Redefining organizational communication and knowledge flow",
+      icon: "🚀",
+      color: "green",
+      features: [
+        {
+          title: "Leadership Amplification",
+          description: "Exponential increase in executive reach through simultaneous meeting coverage",
+          details: "Consistent representation of leadership priorities across all organizational levels"
+        },
+        {
+          title: "Global Operations Without Borders",
+          description: "24/7 meeting coverage across international time zones without personal schedule disruption",
+          details: "Elimination of early/late calls for managers of distributed teams"
+        },
+        {
+          title: "Organizational Knowledge Persistence",
+          description: "Cumulative intelligence building across meeting sequences and related discussions",
+          details: "Creation of living, accessible institutional memory that survives employee turnover"
+        }
+      ]
+    }
+  ];
 
-  React.useEffect(() => {
-    calculateROI();
-  }, [roiInputs]);
-
-  const calculateROI = () => {
-    const { employees, meetingsPerWeek, avgMeetingDuration } = roiInputs;
-    
-    // Current costs (inefficient meetings)
-    const avgSalary = 75000; // Average employee salary
-    const hourlyRate = avgSalary / (52 * 40);
-    const weeklyMeetingHours = (meetingsPerWeek * avgMeetingDuration) / 60;
-    const currentWeeklyCost = weeklyMeetingHours * hourlyRate * employees * 0.35; // 35% meeting inefficiency
-    const currentAnnualCost = currentWeeklyCost * 52;
-    
-    // VoiceAgent AI benefits
-    const efficiencyImprovement = 0.4; // 40% efficiency improvement
-    const annualSavings = currentAnnualCost * efficiencyImprovement;
-    const voiceAgentCost = employees * 99 * 12; // $99/user/month
-    const netBenefit = annualSavings - voiceAgentCost;
-    const roi = ((netBenefit / voiceAgentCost) * 100).toFixed(0);
-    const paybackMonths = (voiceAgentCost / (annualSavings / 12)).toFixed(1);
-    
-    setROIResults({
-      currentAnnualCost: currentAnnualCost.toLocaleString(),
-      annualSavings: annualSavings.toLocaleString(),
-      voiceAgentCost: voiceAgentCost.toLocaleString(),
-      netBenefit: netBenefit.toLocaleString(),
-      roi,
-      paybackMonths
-    });
+  const getColorClasses = (color) => {
+    const colorMap = {
+      blue: { 
+        bg: "bg-blue-900/30", 
+        border: "border-blue-500/30", 
+        text: "text-blue-400",
+        gradient: "from-blue-600 to-blue-800"
+      },
+      cyan: { 
+        bg: "bg-cyan-900/30", 
+        border: "border-cyan-500/30", 
+        text: "text-cyan-400",
+        gradient: "from-cyan-600 to-cyan-800"
+      },
+      indigo: { 
+        bg: "bg-indigo-900/30", 
+        border: "border-indigo-500/30", 
+        text: "text-indigo-400",
+        gradient: "from-indigo-600 to-indigo-800"
+      },
+      green: { 
+        bg: "bg-green-900/30", 
+        border: "border-green-500/30", 
+        text: "text-green-400",
+        gradient: "from-green-600 to-green-800"
+      }
+    };
+    return colorMap[color];
   };
 
   return (
