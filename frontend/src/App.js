@@ -1047,67 +1047,12 @@ const MarketPage = () => {
                       </div>
                     ))}
                   </div>
-                        <div className="text-3xl font-bold text-blue-400 mb-2">95%</div>
-                        <div className="text-slate-300">Setup Time Reduction</div>
-                      </div>
-                      <div className="bg-cyan-900/30 rounded-xl p-6 border border-cyan-500/30 text-center">
-                        <div className="text-3xl font-bold text-cyan-400 mb-2">100%</div>
-                        <div className="text-slate-300">Policy Adherence</div>
-                      </div>
-                      <div className="bg-indigo-900/30 rounded-xl p-6 border border-indigo-500/30 text-center">
-                        <div className="text-3xl font-bold text-indigo-400 mb-2">∞</div>
-                        <div className="text-slate-300">Agent Scalability</div>
-                      </div>
-                    </div>
-                  )}
+                </div>
+              );
+            })}
+          </div>
 
-                  {stage.id === 2 && (
-                    <div className="grid md:grid-cols-3 gap-6">
-                      <div className="bg-cyan-900/30 rounded-xl p-6 border border-cyan-500/30 text-center">
-                        <div className="text-3xl font-bold text-cyan-400 mb-2">15-20h</div>
-                        <div className="text-slate-300">Weekly Time Reclaimed</div>
-                      </div>
-                      <div className="bg-blue-900/30 rounded-xl p-6 border border-blue-500/30 text-center">
-                        <div className="text-3xl font-bold text-blue-400 mb-2">3-5x</div>
-                        <div className="text-slate-300">Meeting Coverage</div>
-                      </div>
-                      <div className="bg-green-900/30 rounded-xl p-6 border border-green-500/30 text-center">
-                        <div className="text-3xl font-bold text-green-400 mb-2">24/7</div>
-                        <div className="text-slate-300">Global Availability</div>
-                      </div>
-                    </div>
-                  )}
-
-                  {stage.id === 3 && (
-                    <div className="grid md:grid-cols-3 gap-6">
-                      <div className="bg-indigo-900/30 rounded-xl p-6 border border-indigo-500/30 text-center">
-                        <div className="text-3xl font-bold text-indigo-400 mb-2">40%</div>
-                        <div className="text-slate-300">Decision Velocity Increase</div>
-                      </div>
-                      <div className="bg-purple-900/30 rounded-xl p-6 border border-purple-500/30 text-center">
-                        <div className="text-3xl font-bold text-purple-400 mb-2">18mo</div>
-                        <div className="text-slate-300">Technology Lead</div>
-                      </div>
-                      <div className="bg-blue-900/30 rounded-xl p-6 border border-blue-500/30 text-center">
-                        <div className="text-3xl font-bold text-blue-400 mb-2">100%</div>
-                        <div className="text-slate-300">Context Retention</div>
-                      </div>
-                    </div>
-                  )}
-
-                  {stage.id === 4 && (
-                    <div className="grid md:grid-cols-3 gap-6">
-                      <div className="bg-green-900/30 rounded-xl p-6 border border-green-500/30 text-center">
-                        <div className="text-3xl font-bold text-green-400 mb-2">96%</div>
-                        <div className="text-slate-300">Annual Retention Rate</div>
-                      </div>
-                      <div className="bg-blue-900/30 rounded-xl p-6 border border-blue-500/30 text-center">
-                        <div className="text-3xl font-bold text-blue-400 mb-2">∞</div>
-                        <div className="text-slate-300">Knowledge Persistence</div>
-                      </div>
-                      <div className="bg-yellow-900/30 rounded-xl p-6 border border-yellow-500/30 text-center">
-                        <div className="text-3xl font-bold text-yellow-400 mb-2">100%</div>
-                        <div className="text-slate-300">Global Alignment</div>
+          {/* Key Investor Metrics */}
                       </div>
                     </div>
                   )}
