@@ -828,118 +828,136 @@ const TechnologyPage = () => {
 
 // Market Analysis Page Component
 const MarketPage = () => {
-  const [activeStage, setActiveStage] = React.useState(1);
+  const [activeCategory, setActiveCategory] = React.useState('representation');
   
-  const stages = [
+  const useCaseCategories = [
     {
-      id: 1,
-      title: "Intelligent Agent Creation",
-      subtitle: "The foundation of personalized AI representation",
-      icon: "🤖",
-      color: "blue",
-      features: [
-        {
-          title: "Custom Agent Library",
-          description: "One-time creation of specialized agents (Executive, HR, Finance, etc.) with permanent storage",
-          details: "Simple configuration interface for department-specific knowledge and communication styles"
-        },
-        {
-          title: "Knowledge Integration Hub", 
-          description: "Seamless incorporation of proprietary company information, policies, and procedures",
-          details: "Direct upload of project documentation to create contextually-aware meeting participants"
-        }
+      id: 'representation',
+      title: 'Active Meeting Representation',
+      icon: '👤',
+      color: 'blue',
+      cases: [
+        'Replace yourself in daily standups while the AI agent asks team members for updates using your voice',
+        'Have the AI join client meetings to gather requirements and answer basic questions',
+        'Send AI representatives to recurring meetings, freeing executives to focus on strategic work'
       ]
     },
     {
-      id: 2,
-      title: "Frictionless Meeting Deployment",
-      subtitle: "Eliminating the constraints of human availability",
-      icon: "⚡",
-      color: "cyan",
-      features: [
-        {
-          title: "On-Demand Meeting Participation",
-          description: "One-click deployment of any pre-configured agent to scheduled or ad-hoc meetings",
-          details: "Dynamic agent switching during meetings as conversation topics evolve"
-        },
-        {
-          title: "Active Voice Representation",
-          description: "Complete stand-in capability for daily standups with personalized voice and interaction style",
-          details: "Autonomous handling of routine client meetings for requirements gathering"
-        }
+      id: 'gathering',
+      title: 'Real-Time Information Gathering',
+      icon: '📊',
+      color: 'cyan',
+      cases: [
+        'AI conducts structured interviews with team members during standups or check-ins',
+        'Automatically asks follow-up questions to clarify vague updates or blockers',
+        'Collects consistent data points from each participant (progress, challenges, needs)'
       ]
     },
     {
-      id: 3,
-      title: "Advanced Conversation Intelligence",
-      subtitle: "Beyond passive transcription to active participation",
-      icon: "🧠",
-      color: "indigo",
-      features: [
-        {
-          title: "Structured Information Gathering",
-          description: "Proactive interview conduction with team members during check-ins and standups",
-          details: "Dynamic follow-up question generation to resolve ambiguities and unclear updates"
-        },
-        {
-          title: "Multi-Agent Meeting Ecosystem",
-          description: "Simultaneous deployment of specialized agents for cross-functional discussions",
-          details: "AI-to-AI coordination to resolve complex questions requiring multiple domains"
-        }
+      id: 'coordination',
+      title: 'Global Team Coordination',
+      icon: '🌍',
+      color: 'indigo',
+      cases: [
+        'Run consistent standups across multiple time zones without requiring managers to attend at odd hours',
+        'Conduct overnight check-ins with international teams while maintaining your work-life balance',
+        'Ensure 24/7 meeting coverage without expanding headcount or disrupting personal schedules'
       ]
     },
     {
-      id: 4,
-      title: "Enterprise Transformation",
-      subtitle: "Redefining organizational communication and knowledge flow",
-      icon: "🚀",
-      color: "green",
-      features: [
-        {
-          title: "Leadership Amplification",
-          description: "Exponential increase in executive reach through simultaneous meeting coverage",
-          details: "Consistent representation of leadership priorities across all organizational levels"
-        },
-        {
-          title: "Global Operations Without Borders",
-          description: "24/7 meeting coverage across international time zones without personal schedule disruption",
-          details: "Elimination of early/late calls for managers of distributed teams"
-        },
-        {
-          title: "Organizational Knowledge Persistence",
-          description: "Cumulative intelligence building across meeting sequences and related discussions",
-          details: "Creation of living, accessible institutional memory that survives employee turnover"
-        }
+      id: 'amplification',
+      title: 'Management Amplification',
+      icon: '📈',
+      color: 'green',
+      cases: [
+        'Allow managers to "be in multiple places at once" through AI delegates',
+        'Scale the impact of key leaders by having their AI representatives gather information',
+        'Maintain consistent leadership presence in routine meetings while focusing human attention on exceptions'
+      ]
+    }
+  ];
+
+  const advancedFeatures = [
+    {
+      title: 'Dynamic Meeting Management',
+      icon: '⚡',
+      items: [
+        'Add or remove AI agents from calls in real-time as meeting topics change',
+        'Seamlessly transition between human and AI participation during long meetings',
+        'Invite specialized AI agents with particular expertise when conversations shift to their domain'
+      ]
+    },
+    {
+      title: 'Custom Knowledge Integration',
+      icon: '🧠',
+      items: [
+        'Enhance agents with company-specific information like internal policies and procedures',
+        'Upload project documentation to create contextually-aware meeting participants',
+        'Integrate product specifications, financial data, or customer histories for domain-specific intelligence'
+      ]
+    },
+    {
+      title: 'Hybrid Human-AI Collaboration',
+      icon: '🤝',
+      items: [
+        'Partially attend important meetings, having your AI agent handle routine portions while you join for critical segments',
+        'Monitor multiple parallel meetings and jump in only when your personal input is required',
+        'Set triggers for when your AI should escalate questions to you during a meeting'
+      ]
+    },
+    {
+      title: 'Reusable Agent Library',
+      icon: '📚',
+      items: [
+        'Create specialized agents once (HR, Finance, Marketing, etc.) and save them permanently',
+        'Configure each agent with department-specific knowledge, policies, and speaking styles',
+        'Access your entire agent portfolio instantly without recreating or reconfiguring them'
+      ]
+    },
+    {
+      title: 'On-Demand Agent Deployment',
+      icon: '🚀',
+      items: [
+        'Instantly deploy any pre-configured agent to meetings as needed',
+        'Switch between multiple specialist agents during a single meeting as topics shift',
+        'Scale from one to many agents in seconds based on meeting requirements'
+      ]
+    },
+    {
+      title: 'Role-Based AI Representatives',
+      icon: '👥',
+      items: [
+        'Create dedicated agents for specific business functions (HR policies, compliance, technical support)',
+        'Deploy procedural agents that guide meetings through established protocols or frameworks',
+        'Maintain consistent knowledge representation across all related meetings'
+      ]
+    },
+    {
+      title: 'Multi-Agent Collaboration',
+      icon: '🤖',
+      items: [
+        'Bring multiple specialist agents into a single meeting for cross-functional discussions',
+        'Enable AI-to-AI interaction between specialists to resolve complex questions',
+        'Create "virtual panels" of AI experts to address multi-faceted problems'
+      ]
+    },
+    {
+      title: 'Organizational Memory',
+      icon: '🧭',
+      items: [
+        'Each specialized agent builds knowledge across multiple meetings over time',
+        'HR agent accumulates comprehensive understanding of policy applications and exceptions',
+        'Technical agents develop improved explanations based on recurring questions'
       ]
     }
   ];
 
   const getColorClasses = (color) => {
     const colorMap = {
-      blue: { 
-        bg: "bg-blue-900/30", 
-        border: "border-blue-500/30", 
-        text: "text-blue-400",
-        gradient: "from-blue-600 to-blue-800"
-      },
-      cyan: { 
-        bg: "bg-cyan-900/30", 
-        border: "border-cyan-500/30", 
-        text: "text-cyan-400",
-        gradient: "from-cyan-600 to-cyan-800"
-      },
-      indigo: { 
-        bg: "bg-indigo-900/30", 
-        border: "border-indigo-500/30", 
-        text: "text-indigo-400",
-        gradient: "from-indigo-600 to-indigo-800"
-      },
-      green: { 
-        bg: "bg-green-900/30", 
-        border: "border-green-500/30", 
-        text: "text-green-400",
-        gradient: "from-green-600 to-green-800"
-      }
+      blue: { bg: "bg-blue-900/30", border: "border-blue-500/30", text: "text-blue-400" },
+      cyan: { bg: "bg-cyan-900/30", border: "border-cyan-500/30", text: "text-cyan-400" },
+      indigo: { bg: "bg-indigo-900/30", border: "border-indigo-500/30", text: "text-indigo-400" },
+      green: { bg: "bg-green-900/30", border: "border-green-500/30", text: "text-green-400" }
     };
     return colorMap[color];
   };
