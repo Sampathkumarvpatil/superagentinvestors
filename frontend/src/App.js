@@ -961,101 +961,201 @@ const MarketPage = () => {
             </p>
           </div>
 
-          {/* Interactive ROI Calculator */}
+          {/* 4-Stage Framework */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-white mb-4">🚀 Revolutionary Platform Evolution</h3>
+              <p className="text-xl text-slate-300 max-w-4xl mx-auto">
+                Our platform transforms enterprise meetings through four progressive stages, each unlocking exponential value
+              </p>
+            </div>
+
+            {/* Stage Navigation */}
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {stages.map((stage) => {
+                const colors = getColorClasses(stage.color);
+                return (
+                  <button
+                    key={stage.id}
+                    onClick={() => setActiveStage(stage.id)}
+                    className={`px-6 py-3 rounded-xl border transition-all duration-300 ${
+                      activeStage === stage.id 
+                        ? `${colors.bg} ${colors.border} ${colors.text}` 
+                        : 'bg-slate-800/40 border-slate-600 text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    <span className="text-lg mr-2">{stage.icon}</span>
+                    Stage {stage.id}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Active Stage Content */}
+            {stages.map((stage) => {
+              if (activeStage !== stage.id) return null;
+              const colors = getColorClasses(stage.color);
+              
+              return (
+                <div key={stage.id} className="animate-fadeInUp">
+                  <div className={`bg-gradient-to-br ${colors.gradient} rounded-2xl p-8 mb-8 border border-slate-700/50`}>
+                    <div className="text-center mb-8">
+                      <div className="text-5xl mb-4">{stage.icon}</div>
+                      <h4 className="text-3xl font-bold text-white mb-2">Stage {stage.id}: {stage.title}</h4>
+                      <p className="text-xl text-slate-200">{stage.subtitle}</p>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-8 mb-8">
+                    {stage.features.map((feature, index) => (
+                      <div key={index} className={`${colors.bg} backdrop-blur-xl rounded-2xl p-8 border ${colors.border}`}>
+                        <h5 className={`text-2xl font-bold ${colors.text} mb-4`}>{feature.title}</h5>
+                        <p className="text-slate-300 mb-4 text-lg">{feature.description}</p>
+                        <p className="text-slate-400">{feature.details}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Stage-specific metrics */}
+                  {stage.id === 1 && (
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <div className="bg-blue-900/30 rounded-xl p-6 border border-blue-500/30 text-center">
+                        <div className="text-3xl font-bold text-blue-400 mb-2">95%</div>
+                        <div className="text-slate-300">Setup Time Reduction</div>
+                      </div>
+                      <div className="bg-cyan-900/30 rounded-xl p-6 border border-cyan-500/30 text-center">
+                        <div className="text-3xl font-bold text-cyan-400 mb-2">100%</div>
+                        <div className="text-slate-300">Policy Adherence</div>
+                      </div>
+                      <div className="bg-indigo-900/30 rounded-xl p-6 border border-indigo-500/30 text-center">
+                        <div className="text-3xl font-bold text-indigo-400 mb-2">∞</div>
+                        <div className="text-slate-300">Agent Scalability</div>
+                      </div>
+                    </div>
+                  )}
+
+                  {stage.id === 2 && (
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <div className="bg-cyan-900/30 rounded-xl p-6 border border-cyan-500/30 text-center">
+                        <div className="text-3xl font-bold text-cyan-400 mb-2">15-20h</div>
+                        <div className="text-slate-300">Weekly Time Reclaimed</div>
+                      </div>
+                      <div className="bg-blue-900/30 rounded-xl p-6 border border-blue-500/30 text-center">
+                        <div className="text-3xl font-bold text-blue-400 mb-2">3-5x</div>
+                        <div className="text-slate-300">Meeting Coverage</div>
+                      </div>
+                      <div className="bg-green-900/30 rounded-xl p-6 border border-green-500/30 text-center">
+                        <div className="text-3xl font-bold text-green-400 mb-2">24/7</div>
+                        <div className="text-slate-300">Global Availability</div>
+                      </div>
+                    </div>
+                  )}
+
+                  {stage.id === 3 && (
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <div className="bg-indigo-900/30 rounded-xl p-6 border border-indigo-500/30 text-center">
+                        <div className="text-3xl font-bold text-indigo-400 mb-2">40%</div>
+                        <div className="text-slate-300">Decision Velocity Increase</div>
+                      </div>
+                      <div className="bg-purple-900/30 rounded-xl p-6 border border-purple-500/30 text-center">
+                        <div className="text-3xl font-bold text-purple-400 mb-2">18mo</div>
+                        <div className="text-slate-300">Technology Lead</div>
+                      </div>
+                      <div className="bg-blue-900/30 rounded-xl p-6 border border-blue-500/30 text-center">
+                        <div className="text-3xl font-bold text-blue-400 mb-2">100%</div>
+                        <div className="text-slate-300">Context Retention</div>
+                      </div>
+                    </div>
+                  )}
+
+                  {stage.id === 4 && (
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <div className="bg-green-900/30 rounded-xl p-6 border border-green-500/30 text-center">
+                        <div className="text-3xl font-bold text-green-400 mb-2">96%</div>
+                        <div className="text-slate-300">Annual Retention Rate</div>
+                      </div>
+                      <div className="bg-blue-900/30 rounded-xl p-6 border border-blue-500/30 text-center">
+                        <div className="text-3xl font-bold text-blue-400 mb-2">∞</div>
+                        <div className="text-slate-300">Knowledge Persistence</div>
+                      </div>
+                      <div className="bg-yellow-900/30 rounded-xl p-6 border border-yellow-500/30 text-center">
+                        <div className="text-3xl font-bold text-yellow-400 mb-2">100%</div>
+                        <div className="text-slate-300">Global Alignment</div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Key Investor Metrics */}
           <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 mb-16">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">💰 Enterprise ROI Calculator</h3>
+            <h3 className="text-2xl font-bold text-white mb-8 text-center">💎 Key Investor Metrics</h3>
             
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div>
-                <h4 className="text-xl font-semibold text-white mb-6">Your Organization</h4>
-                
-                <div className="space-y-6">
-                  <div>
-                    <label className="block text-slate-300 mb-2">Number of Employees</label>
-                    <input
-                      type="range"
-                      min="100"
-                      max="10000"
-                      step="100"
-                      value={roiInputs.employees}
-                      onChange={(e) => setROIInputs({...roiInputs, employees: parseInt(e.target.value)})}
-                      className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer"
-                    />
-                    <div className="text-blue-400 font-semibold text-lg mt-1">{roiInputs.employees.toLocaleString()} employees</div>
+                <h4 className="text-xl font-semibold text-blue-400 mb-6">Market Differentiation</h4>
+                <div className="space-y-4">
+                  <div className="bg-slate-700/50 rounded-lg p-4">
+                    <div className="text-white font-semibold">Only Active Voice Solution</div>
+                    <div className="text-slate-300 text-sm">Only solution offering active voice participation with customized agent personalities</div>
                   </div>
-                  
-                  <div>
-                    <label className="block text-slate-300 mb-2">Meetings per Week</label>
-                    <input
-                      type="range"
-                      min="5"
-                      max="100"
-                      step="5"
-                      value={roiInputs.meetingsPerWeek}
-                      onChange={(e) => setROIInputs({...roiInputs, meetingsPerWeek: parseInt(e.target.value)})}
-                      className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer"
-                    />
-                    <div className="text-cyan-400 font-semibold text-lg mt-1">{roiInputs.meetingsPerWeek} meetings/week</div>
+                  <div className="bg-slate-700/50 rounded-lg p-4">
+                    <div className="text-white font-semibold">Proprietary Multi-Agent Tech</div>
+                    <div className="text-slate-300 text-sm">Multi-agent orchestration technology enabling specialist collaboration</div>
                   </div>
-                  
-                  <div>
-                    <label className="block text-slate-300 mb-2">Average Meeting Duration (minutes)</label>
-                    <input
-                      type="range"
-                      min="30"
-                      max="120"
-                      step="15"
-                      value={roiInputs.avgMeetingDuration}
-                      onChange={(e) => setROIInputs({...roiInputs, avgMeetingDuration: parseInt(e.target.value)})}
-                      className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer"
-                    />
-                    <div className="text-green-400 font-semibold text-lg mt-1">{roiInputs.avgMeetingDuration} minutes</div>
+                  <div className="bg-slate-700/50 rounded-lg p-4">
+                    <div className="text-white font-semibold">End-to-End Solution</div>
+                    <div className="text-slate-300 text-sm">From knowledge integration to deployment and analysis</div>
                   </div>
                 </div>
               </div>
-              
+
               <div>
-                <h4 className="text-xl font-semibold text-white mb-6">ROI Analysis</h4>
-                
+                <h4 className="text-xl font-semibold text-green-400 mb-6">Business Impact</h4>
                 <div className="space-y-4">
-                  <div className="bg-red-900/30 rounded-lg p-4 border border-red-500/30">
-                    <div className="text-red-400 font-semibold">Current Annual Cost (Meeting Inefficiency)</div>
-                    <div className="text-2xl font-bold text-white">${roiResults.currentAnnualCost}</div>
+                  <div className="bg-slate-700/50 rounded-lg p-4">
+                    <div className="text-white font-semibold">Executive Time Reclamation</div>
+                    <div className="text-green-400 text-lg font-bold">15-20 hours weekly per manager</div>
                   </div>
-                  
-                  <div className="bg-green-900/30 rounded-lg p-4 border border-green-500/30">
-                    <div className="text-green-400 font-semibold">Annual Savings with VoiceAgent AI</div>
-                    <div className="text-2xl font-bold text-white">${roiResults.annualSavings}</div>
+                  <div className="bg-slate-700/50 rounded-lg p-4">
+                    <div className="text-white font-semibold">Meeting Coverage Expansion</div>
+                    <div className="text-green-400 text-lg font-bold">3-5x increase without additional headcount</div>
                   </div>
-                  
-                  <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-500/30">
-                    <div className="text-blue-400 font-semibold">VoiceAgent AI Annual Cost</div>
-                    <div className="text-2xl font-bold text-white">${roiResults.voiceAgentCost}</div>
+                  <div className="bg-slate-700/50 rounded-lg p-4">
+                    <div className="text-white font-semibold">Decision Velocity Acceleration</div>
+                    <div className="text-green-400 text-lg font-bold">40% reduction in information-to-action cycle</div>
                   </div>
-                  
-                  <div className="bg-yellow-900/30 rounded-lg p-4 border border-yellow-500/30">
-                    <div className="text-yellow-400 font-semibold">Net Annual Benefit</div>
-                    <div className="text-2xl font-bold text-white">${roiResults.netBenefit}</div>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-xl font-semibold text-purple-400 mb-6">Enterprise Scaling</h4>
+                <div className="space-y-4">
+                  <div className="bg-slate-700/50 rounded-lg p-4">
+                    <div className="text-white font-semibold">Configuration Efficiency</div>
+                    <div className="text-purple-400 text-lg font-bold">95% reduction in setup time</div>
                   </div>
-                  
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-purple-900/30 rounded-lg p-4 border border-purple-500/30 text-center">
-                      <div className="text-purple-400 font-semibold">ROI</div>
-                      <div className="text-2xl font-bold text-white">{roiResults.roi}%</div>
-                    </div>
-                    
-                    <div className="bg-cyan-900/30 rounded-lg p-4 border border-cyan-500/30 text-center">
-                      <div className="text-cyan-400 font-semibold">Payback</div>
-                      <div className="text-2xl font-bold text-white">{roiResults.paybackMonths}mo</div>
-                    </div>
+                  <div className="bg-slate-700/50 rounded-lg p-4">
+                    <div className="text-white font-semibold">Knowledge Consistency</div>
+                    <div className="text-purple-400 text-lg font-bold">100% adherence to policies</div>
+                  </div>
+                  <div className="bg-slate-700/50 rounded-lg p-4">
+                    <div className="text-white font-semibold">Global Workforce Alignment</div>
+                    <div className="text-purple-400 text-lg font-bold">24/7 meeting coverage</div>
                   </div>
                 </div>
               </div>
             </div>
-            
-            <div className="mt-8 text-center">
-              <div className="text-slate-400 text-sm">
-                Calculation based on 35% meeting inefficiency reduction and average enterprise salary of $75,000
+
+            <div className="text-center">
+              <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl p-6 border border-blue-500/30">
+                <div className="text-xl font-semibold text-white mb-2">Investment Narrative</div>
+                <div className="text-slate-300">
+                  Compelling framework presenting immediate value (Stages 1-2) and transformative long-term potential (Stages 3-4), 
+                  with proprietary technology advantages and quantifiable business impact.
+                </div>
               </div>
             </div>
           </div>
