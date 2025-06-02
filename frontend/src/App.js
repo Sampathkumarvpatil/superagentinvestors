@@ -988,35 +988,35 @@ const MarketPage = () => {
               </p>
             </div>
 
-            {/* Stage Navigation */}
+            {/* Use Case Categories */}
             <div className="flex flex-wrap justify-center gap-4 mb-12">
-              {stages.map((stage) => {
-                const colors = getColorClasses(stage.color);
+              {useCaseCategories.map((category) => {
+                const colors = getColorClasses(category.color);
                 return (
                   <button
-                    key={stage.id}
-                    onClick={() => setActiveStage(stage.id)}
+                    key={category.id}
+                    onClick={() => setActiveCategory(category.id)}
                     className={`px-6 py-3 rounded-xl border transition-all duration-300 ${
-                      activeStage === stage.id 
+                      activeCategory === category.id 
                         ? `${colors.bg} ${colors.border} ${colors.text}` 
                         : 'bg-slate-800/40 border-slate-600 text-slate-400 hover:text-white'
                     }`}
                   >
-                    <span className="text-lg mr-2">{stage.icon}</span>
-                    Stage {stage.id}
+                    <span className="text-lg mr-2">{category.icon}</span>
+                    {category.title}
                   </button>
                 );
               })}
             </div>
 
-            {/* Active Stage Content */}
-            {stages.map((stage) => {
-              if (activeStage !== stage.id) return null;
-              const colors = getColorClasses(stage.color);
+            {/* Active Category Content */}
+            {useCaseCategories.map((category) => {
+              if (activeCategory !== category.id) return null;
+              const colors = getColorClasses(category.color);
               
               return (
-                <div key={stage.id} className="animate-fadeInUp">
-                  <div className={`bg-gradient-to-br ${colors.gradient} rounded-2xl p-8 mb-8 border border-slate-700/50`}>
+                <div key={category.id} className="animate-fadeInUp">
+                  <div className={`${colors.bg} rounded-2xl p-8 mb-8 border ${colors.border}`}>
                     <div className="text-center mb-8">
                       <div className="text-5xl mb-4">{stage.icon}</div>
                       <h4 className="text-3xl font-bold text-white mb-2">Stage {stage.id}: {stage.title}</h4>
