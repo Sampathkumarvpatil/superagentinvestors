@@ -979,16 +979,16 @@ const MarketPage = () => {
             </p>
           </div>
 
-          {/* 4-Stage Framework */}
+          {/* Comprehensive Use Case Portfolio */}
           <div className="mb-16">
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-white mb-4">🚀 Revolutionary Platform Evolution</h3>
+              <h3 className="text-3xl font-bold text-white mb-4">🤖 AI Meeting Superagent: Comprehensive Use Case Portfolio</h3>
               <p className="text-xl text-slate-300 max-w-4xl mx-auto">
-                Our platform transforms enterprise meetings through four progressive stages, each unlocking exponential value
+                Transform your meeting productivity with 12 revolutionary capabilities that redefine how teams collaborate
               </p>
             </div>
 
-            {/* Use Case Categories */}
+            {/* Core Use Case Categories */}
             <div className="flex flex-wrap justify-center gap-4 mb-12">
               {useCaseCategories.map((category) => {
                 const colors = getColorClasses(category.color);
@@ -1015,7 +1015,7 @@ const MarketPage = () => {
               const colors = getColorClasses(category.color);
               
               return (
-                <div key={category.id} className="animate-fadeInUp">
+                <div key={category.id} className="animate-fadeInUp mb-12">
                   <div className={`${colors.bg} rounded-2xl p-8 mb-8 border ${colors.border}`}>
                     <div className="text-center mb-8">
                       <div className="text-5xl mb-4">{category.icon}</div>
@@ -1023,110 +1023,93 @@ const MarketPage = () => {
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-1 gap-8 mb-8">
+                  <div className="grid gap-6 mb-8">
                     {category.cases.map((useCase, index) => (
-                      <div key={index} className={`${colors.bg} backdrop-blur-xl rounded-2xl p-6 border ${colors.border}`}>
-                        <p className="text-slate-300 text-lg">{useCase}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Advanced Features */}
-                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {advancedFeatures.map((feature, index) => (
-                      <div key={index} className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50">
-                        <div className="flex items-center mb-4">
-                          <span className="text-2xl mr-3">{feature.icon}</span>
-                          <h5 className="text-lg font-semibold text-white">{feature.title}</h5>
+                      <div key={index} className={`${colors.bg} backdrop-blur-xl rounded-xl p-6 border ${colors.border}`}>
+                        <div className="flex items-start">
+                          <div className={`w-6 h-6 rounded-full ${colors.text.replace('text-', 'bg-')} flex items-center justify-center mr-4 mt-1 flex-shrink-0`}>
+                            <span className="text-white text-sm font-bold">{index + 1}</span>
+                          </div>
+                          <p className="text-slate-300 text-lg">{useCase}</p>
                         </div>
-                        <ul className="space-y-2">
-                          {feature.items.map((item, itemIndex) => (
-                            <li key={itemIndex} className="text-slate-300 text-sm">{item}</li>
-                          ))}
-                        </ul>
                       </div>
                     ))}
                   </div>
                 </div>
               );
             })}
-          </div>
 
-          {/* Key Investor Metrics */}
-                      </div>
+            {/* Advanced Features Grid */}
+            <div className="mb-12">
+              <h4 className="text-2xl font-bold text-white mb-8 text-center">🔧 Advanced Capabilities</h4>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {advancedFeatures.map((feature, index) => (
+                  <div key={index} className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300">
+                    <div className="flex items-center mb-4">
+                      <span className="text-2xl mr-3">{feature.icon}</span>
+                      <h5 className="text-lg font-semibold text-white">{feature.title}</h5>
                     </div>
-                  )}
-                </div>
-              );
-            })}
+                    <ul className="space-y-3">
+                      {feature.items.map((item, itemIndex) => (
+                        <li key={itemIndex} className="text-slate-300 text-sm flex items-start">
+                          <span className="text-blue-400 mr-2 mt-1">•</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
-          {/* Key Investor Metrics */}
+          {/* Key ROI Drivers */}
           <div className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 mb-16">
-            <h3 className="text-2xl font-bold text-white mb-8 text-center">💎 Key Investor Metrics</h3>
+            <h3 className="text-2xl font-bold text-white mb-8 text-center">📊 Key ROI Drivers</h3>
             
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
-              <div>
-                <h4 className="text-xl font-semibold text-blue-400 mb-6">Market Differentiation</h4>
-                <div className="space-y-4">
-                  <div className="bg-slate-700/50 rounded-lg p-4">
-                    <div className="text-white font-semibold">Only Active Voice Solution</div>
-                    <div className="text-slate-300 text-sm">Only solution offering active voice participation with customized agent personalities</div>
-                  </div>
-                  <div className="bg-slate-700/50 rounded-lg p-4">
-                    <div className="text-white font-semibold">Proprietary Multi-Agent Tech</div>
-                    <div className="text-slate-300 text-sm">Multi-agent orchestration technology enabling specialist collaboration</div>
-                  </div>
-                  <div className="bg-slate-700/50 rounded-lg p-4">
-                    <div className="text-white font-semibold">End-to-End Solution</div>
-                    <div className="text-slate-300 text-sm">From knowledge integration to deployment and analysis</div>
-                  </div>
-                </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="bg-green-900/30 rounded-xl p-6 border border-green-500/30 text-center">
+                <div className="text-3xl font-bold text-green-400 mb-2">15-20h</div>
+                <div className="text-white font-semibold mb-2">Time Reclaimed</div>
+                <div className="text-slate-300 text-sm">per week for managers by delegating routine meetings</div>
               </div>
 
-              <div>
-                <h4 className="text-xl font-semibold text-green-400 mb-6">Business Impact</h4>
-                <div className="space-y-4">
-                  <div className="bg-slate-700/50 rounded-lg p-4">
-                    <div className="text-white font-semibold">Executive Time Reclamation</div>
-                    <div className="text-green-400 text-lg font-bold">15-20 hours weekly per manager</div>
-                  </div>
-                  <div className="bg-slate-700/50 rounded-lg p-4">
-                    <div className="text-white font-semibold">Meeting Coverage Expansion</div>
-                    <div className="text-green-400 text-lg font-bold">3-5x increase without additional headcount</div>
-                  </div>
-                  <div className="bg-slate-700/50 rounded-lg p-4">
-                    <div className="text-white font-semibold">Decision Velocity Acceleration</div>
-                    <div className="text-green-400 text-lg font-bold">40% reduction in information-to-action cycle</div>
-                  </div>
-                </div>
+              <div className="bg-blue-900/30 rounded-xl p-6 border border-blue-500/30 text-center">
+                <div className="text-3xl font-bold text-blue-400 mb-2">100%</div>
+                <div className="text-white font-semibold mb-2">Knowledge Consistency</div>
+                <div className="text-slate-300 text-sm">adherence to policies and procedures across all meetings</div>
               </div>
 
-              <div>
-                <h4 className="text-xl font-semibold text-purple-400 mb-6">Enterprise Scaling</h4>
-                <div className="space-y-4">
-                  <div className="bg-slate-700/50 rounded-lg p-4">
-                    <div className="text-white font-semibold">Configuration Efficiency</div>
-                    <div className="text-purple-400 text-lg font-bold">95% reduction in setup time</div>
-                  </div>
-                  <div className="bg-slate-700/50 rounded-lg p-4">
-                    <div className="text-white font-semibold">Knowledge Consistency</div>
-                    <div className="text-purple-400 text-lg font-bold">100% adherence to policies</div>
-                  </div>
-                  <div className="bg-slate-700/50 rounded-lg p-4">
-                    <div className="text-white font-semibold">Global Workforce Alignment</div>
-                    <div className="text-purple-400 text-lg font-bold">24/7 meeting coverage</div>
-                  </div>
-                </div>
+              <div className="bg-cyan-900/30 rounded-xl p-6 border border-cyan-500/30 text-center">
+                <div className="text-3xl font-bold text-cyan-400 mb-2">3-5x</div>
+                <div className="text-white font-semibold mb-2">Expanded Reach</div>
+                <div className="text-slate-300 text-sm">increase in meeting coverage capacity for key personnel</div>
+              </div>
+
+              <div className="bg-purple-900/30 rounded-xl p-6 border border-purple-500/30 text-center">
+                <div className="text-3xl font-bold text-purple-400 mb-2">24/7</div>
+                <div className="text-white font-semibold mb-2">Global Efficiency</div>
+                <div className="text-slate-300 text-sm">eliminate early/late calls for international team management</div>
+              </div>
+
+              <div className="bg-indigo-900/30 rounded-xl p-6 border border-indigo-500/30 text-center">
+                <div className="text-3xl font-bold text-indigo-400 mb-2">40%</div>
+                <div className="text-white font-semibold mb-2">Decision Velocity</div>
+                <div className="text-slate-300 text-sm">reduction in decision-making time through immediate information availability</div>
+              </div>
+
+              <div className="bg-yellow-900/30 rounded-xl p-6 border border-yellow-500/30 text-center">
+                <div className="text-3xl font-bold text-yellow-400 mb-2">95%</div>
+                <div className="text-white font-semibold mb-2">Configuration Efficiency</div>
+                <div className="text-slate-300 text-sm">reduction in setup time after initial agent creation</div>
               </div>
             </div>
 
-            <div className="text-center">
-              <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl p-6 border border-blue-500/30">
-                <div className="text-xl font-semibold text-white mb-2">Investment Narrative</div>
+            <div className="mt-8 text-center">
+              <div className="bg-gradient-to-r from-blue-900/50 to-green-900/50 rounded-xl p-6 border border-blue-500/30">
+                <div className="text-xl font-semibold text-white mb-2">🚀 Scalable Expertise</div>
                 <div className="text-slate-300">
-                  Compelling framework presenting immediate value (Stages 1-2) and transformative long-term potential (Stages 3-4), 
-                  with proprietary technology advantages and quantifiable business impact.
+                  Deploy specialized knowledge to unlimited simultaneous meetings with intelligent automation
                 </div>
               </div>
             </div>
