@@ -1018,26 +1018,35 @@ const MarketPage = () => {
                 <div key={category.id} className="animate-fadeInUp">
                   <div className={`${colors.bg} rounded-2xl p-8 mb-8 border ${colors.border}`}>
                     <div className="text-center mb-8">
-                      <div className="text-5xl mb-4">{stage.icon}</div>
-                      <h4 className="text-3xl font-bold text-white mb-2">Stage {stage.id}: {stage.title}</h4>
-                      <p className="text-xl text-slate-200">{stage.subtitle}</p>
+                      <div className="text-5xl mb-4">{category.icon}</div>
+                      <h4 className="text-3xl font-bold text-white mb-2">{category.title}</h4>
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-8 mb-8">
-                    {stage.features.map((feature, index) => (
-                      <div key={index} className={`${colors.bg} backdrop-blur-xl rounded-2xl p-8 border ${colors.border}`}>
-                        <h5 className={`text-2xl font-bold ${colors.text} mb-4`}>{feature.title}</h5>
-                        <p className="text-slate-300 mb-4 text-lg">{feature.description}</p>
-                        <p className="text-slate-400">{feature.details}</p>
+                  <div className="grid md:grid-cols-1 gap-8 mb-8">
+                    {category.cases.map((useCase, index) => (
+                      <div key={index} className={`${colors.bg} backdrop-blur-xl rounded-2xl p-6 border ${colors.border}`}>
+                        <p className="text-slate-300 text-lg">{useCase}</p>
                       </div>
                     ))}
                   </div>
 
-                  {/* Stage-specific metrics */}
-                  {stage.id === 1 && (
-                    <div className="grid md:grid-cols-3 gap-6">
-                      <div className="bg-blue-900/30 rounded-xl p-6 border border-blue-500/30 text-center">
+                  {/* Advanced Features */}
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {advancedFeatures.map((feature, index) => (
+                      <div key={index} className="bg-slate-800/60 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/50">
+                        <div className="flex items-center mb-4">
+                          <span className="text-2xl mr-3">{feature.icon}</span>
+                          <h5 className="text-lg font-semibold text-white">{feature.title}</h5>
+                        </div>
+                        <ul className="space-y-2">
+                          {feature.items.map((item, itemIndex) => (
+                            <li key={itemIndex} className="text-slate-300 text-sm">{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
                         <div className="text-3xl font-bold text-blue-400 mb-2">95%</div>
                         <div className="text-slate-300">Setup Time Reduction</div>
                       </div>
